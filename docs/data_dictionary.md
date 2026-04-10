@@ -50,3 +50,5 @@ row multiplication. Used MODE() for payment type, SUM() for value.
 ### Review Deduplication Note  
 Used DISTINCT ON (order_id) to take the most recent review per order,
 preventing duplicate rows where multiple reviews exist.
+
+
