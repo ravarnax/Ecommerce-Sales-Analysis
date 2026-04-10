@@ -204,3 +204,98 @@ FROM order_items;
             A "0 NULL" result across these columns gives us the green light to move from Data Engineering to Business Intelligence 
     */  
     
+
+
+-- 5. DUPLICATE CHECK
+SELECT
+    'orders — duplicate order_ids' AS check_name,
+    COUNT(*) - COUNT(DISTINCT order_id) AS duplicate_count
+FROM orders
+
+UNION ALL
+
+SELECT
+    'customers — duplicate customer_ids',
+    COUNT(*) - COUNT(DISTINCT customer_id)
+FROM customers
+
+UNION ALL
+
+SELECT
+    'products — duplicate product_ids',
+    COUNT(*) - COUNT(DISTINCT product_id)
+FROM products
+
+UNION ALL
+
+SELECT
+    'sellers — duplicate seller_ids',
+    COUNT(*) - COUNT(DISTINCT seller_id)
+FROM sellers;
+
+
+
+-- 6. REFERENTIAL INTEGRITY
+-- Orders in order_items that don't exist in orders table
+SELECT
+    'order_items orphaned orders' AS check_name,
+    COUNT(DISTINCT oi.order_id)   AS orphaned_count
+FROM order_items oi
+LEFT JOIN orders o ON oi.order_id = o.order_id
+WHERE o.order_id IS NULL
+
+UNION ALL
+
+-- Orders in order_payments not in orders
+SELECT
+    'order_payments orphaned orders',
+    COUNT(DISTINCT op.order_id)
+FROM order_payments op
+LEFT JOIN orders o ON op.order_id = o.order_id
+WHERE o.order_id IS NULL
+
+UNION ALL
+
+-- Orders in order_reviews not in orders
+SELECT
+    'order_reviews orphaned orders',
+    COUNT(DISTINCT r.order_id)
+FROM order_reviews r
+LEFT JOIN orders o ON r.order_id = o.order_id
+WHERE o.order_id IS NULL
+
+UNION ALL
+
+-- Customers in orders not in customers table
+SELECT
+    'orders with missing customers',
+    COUNT(DISTINCT o.customer_id)
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_id IS NULL;
+
+Output:
+    "?column?"	"count"
+    "orders with missing customers"	0
+
+
+
+-- 7. PRICE SANITY CHECK
+SELECT
+    ROUND(MIN(price), 2)    AS min_price,
+    ROUND(MAX(price), 2)    AS max_price,
+    ROUND(AVG(price), 2)    AS avg_price,
+    ROUND(MIN(freight_value), 2)  AS min_freight,
+    ROUND(MAX(freight_value), 2)  AS max_freight,
+    ROUND(AVG(freight_value), 2)  AS avg_freight,
+    COUNT(*) FILTER (WHERE price <= 0)         AS zero_or_neg_price,
+    COUNT(*) FILTER (WHERE freight_value < 0)  AS negative_freight
+FROM order_items;
+
+
+Output:
+    "min_price"	"max_price"	"avg_price"	"min_freight"	"max_freight"	"avg_freight"	"zero_or_neg_price"	"negative_freight"
+      0.85	      6735.00      120.65	    0.00	        409.68	       19.99	            0	            0   
+
+
+
