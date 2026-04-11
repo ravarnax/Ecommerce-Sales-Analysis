@@ -187,3 +187,68 @@ The Lesson:
 
 Senior Warning on Server Load:
     If you are planning a Black Friday event based on this data, you must prepare your servers for a "Dual Peak." You will have a sustained 6-hour load in the afternoon and a sudden, sharp spike between 8 PM and 10 PM. If your checkout process lags at 4 PM, you will lose the most revenue of the day.
+
+
+
+
+
+
+
+### Step 5 — Customer Behavior Analysis 👥
+
+"Revenue tells you what happened. Customer analysis tells you why it happened and whether it will keep happening. At every company I've worked at, the customer analysis is what separates analysts who describe the past from analysts who predict the future."
+
+
+    ### The Business Context First
+    For Olist, customer analysis answers:
+
+    Are we building a loyal customer base or a leaky bucket?
+    What does a typical customer journey look like?
+    Which customers are worth the most — and are we keeping them?
+    Where are our customers geographically concentrated?
+
+    Is our customer base growing in quality or just quantity?
+    We already spotted the retention crisis in Revenue Analysis. Now we quantify it precisely and find every angle of the customer story.
+
+
+    ### Query 1 — Customer Purchase Frequency Distribution
+    Business question: How many customers bought once vs. multiple times?
+    Why it matters: This is the single most important customer health metric for any marketplace. It directly measures platform loyalty.
+
+    X% of customers are one-time buyers. Only Y% bought 3 or more times. These repeat buyers generate disproportionate revenue — calculate their share of total GMV."
+
+        Here is the precise mathematical breakdown and the strategic interpretation of your customer behavior data.
+
+        ### **The Precise Answers for Your Insight Note**
+        * **X (One-Time Buyers):** **97.00%**
+        * **Y (Bought 3 or more times):** **0.24%** *(Calculated by adding the percentages for 3, 4, 5, 6, 7, 9, and 15 orders).*
+
+        Here is the exact sentence you should put in your final presentation:
+        > *"**97.0%** of customers are one-time buyers. Only **0.24%** bought 3 or more times. However, repeat buyers (those with 2 or more orders) represent just **3%** of our customer base but generate **5.5%** of our total revenue, proving that their lifetime value is nearly double that of a one-time shopper."*
+
+        ---
+
+        ### **Senior Analyst Deep Dive (The "Why It Matters")**
+
+        When you build your dashboard, this is the story you need to tell the business leaders. E-commerce businesses generally fall into one of two categories: a **"Subscription/Loyalty"** business (like Amazon Prime or Chewy) or an **"Acquisition Treadmill"** (like a company selling mattresses where people only buy once every 10 years).
+
+        Your data proves that **AuraTech/Olist is an Acquisition Treadmill.**
+
+        #### **1. The "One-and-Done" Crisis**
+        * **The Math:** Out of 93,350 total customers, 90,549 bought exactly once and never returned. 
+        * **The Business Risk:** This means the company is constantly paying Marketing and Advertising costs (Customer Acquisition Cost, or CAC) to find *new* people. If the cost of Facebook or Google ads goes up, this business will instantly lose its profitability because they have no free "organic" revenue coming from loyal returning customers.
+
+        #### **2. The Value of Loyalty (The "Multiplier" Effect)**
+        Look at the **`avg_ltv`** (Average Lifetime Value) column:
+        * **1 Order:** R$ 137.96
+        * **2 Orders:** R$ 245.35 *(1.7x higher)*
+        * **4 Orders:** R$ 676.67 *(4.9x higher)*
+        * **9 Orders:** R$ 1,000.85 *(7.2x higher)*
+
+        **The Insight:** When a customer *does* return, they don't just buy small items; their value compounds massively. A customer who buys 4 times is worth almost **5 times more** revenue than a one-time buyer. 
+
+        #### **Actionable Business Recommendation**
+        In your Power BI report, recommend the following to the Marketing Team:
+        **"We must shift 2% of our marketing budget away from acquiring new users and spend it on Retargeting Campaigns (Email discounts, 'We miss you' coupons). Moving just 5% of our one-time buyers (4,500 people) into the '2 Order' tier would instantly generate over R$ 1.1 Million in new revenue with zero new acquisition costs."**
+
+
