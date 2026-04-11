@@ -182,3 +182,130 @@ ORDER BY order_year;
 -- Business question: Are customers spending more or less per order over time?
 -- Why it matters: Growing GMV from more orders is good. Growing GMV from higher spend per customer is better — it means richer product mix or better upselling.
 
+
+-- 5. AVERAGE ORDER VALUE TREND 
+WITH order_level AS (
+    SELECT
+        order_month,
+        order_month_name,
+        order_id,
+        SUM(item_price)  AS order_gmv,
+        SUM(freight_value) AS order_freight
+    FROM delivered_orders
+    GROUP BY order_month, order_month_name, order_id
+)
+SELECT
+    order_month,
+    order_month_name,
+    COUNT(order_id)                   AS total_orders,
+    ROUND(AVG(order_gmv)::numeric, 2) AS avg_order_value, -- Cast to numeric
+    ROUND(MIN(order_gmv)::numeric, 2) AS min_order_value, -- Cast to numeric
+    ROUND(MAX(order_gmv)::numeric, 2) AS max_order_value, -- Cast to numeric
+    -- Fixed the percentile rounding error by casting to numeric first
+    ROUND(
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY order_gmv)::numeric
+    , 2)                              AS median_order_value
+FROM order_level
+GROUP BY order_month, order_month_name
+ORDER BY order_month;
+
+
+
+-- OUTPUT:
+--      "order_month"		"order_month_name"	"total_orders"	"avg_order_value"	"min_order_value"	"max_order_value"	"median_order_value"
+-- "2016-09-01 00:00:00"	    "Sep 2016"	            1	       134.97	            134.97	           134.97	                134.97
+-- "2016-10-01 00:00:00"	    "Oct 2016"	            265	       152.17	            6.00	           1399.00	                89.00
+-- "2016-12-01 00:00:00"	    "Dec 2016"	            1	       10.90	            10.90	           10.90	                10.90
+-- "2017-01-01 00:00:00"	    "Jan 2017"	            750	       149.06	            2.90	           2999.00	                82.65
+-- "2017-02-01 00:00:00"	    "Feb 2017"	            1653	   141.70	            5.90	           6735.00	                84.90
+-- "2017-03-01 00:00:00"	    "Mar 2017"	            2546	   141.08	            4.90	           3999.90	                84.99
+-- "2017-04-01 00:00:00"	    "Apr 2017"	            2303	   147.92	            4.90	           4799.00	                87.89
+-- "2017-05-01 00:00:00"	    "May 2017"	            3545	   137.99	            4.50	           6499.00	                87.90
+-- "2017-06-01 00:00:00"	    "Jun 2017"	            3135	   134.58	            3.49	           2999.89	                79.90
+-- "2017-07-01 00:00:00"	    "Jul 2017"	            3872	   124.38	            3.90	           2999.89	                84.50
+-- "2017-08-01 00:00:00"	    "Aug 2017"	            4193	   132.29	            3.99	           2159.98	                79.99
+-- "2017-09-01 00:00:00"	    "Sep 2017"	            4150	   146.36	            2.29	           13440.00	                85.00
+-- "2017-10-01 00:00:00"	    "Oct 2017"	            4478	   144.76	            3.85	           2999.99	                89.00
+-- "2017-11-01 00:00:00"	    "Nov 2017"	            7288	   135.52	            3.90	           5934.60	                84.99
+-- "2017-12-01 00:00:00"	    "Dec 2017"	            5513	   131.69	            5.40	           3124.00	                88.60
+-- "2018-01-01 00:00:00"	    "Jan 2018"	            7069	   130.80	            4.99	           3690.00	                87.00
+-- "2018-02-01 00:00:00"	    "Feb 2018"	            6555	   126.08	            2.99	           3300.00	                84.90
+-- "2018-03-01 00:00:00"	    "Mar 2018"	            7003	   136.14	            4.99	           4099.99	                86.90
+-- "2018-04-01 00:00:00"	    "Apr 2018"	            6798	   143.21	            0.85	           3399.99	                89.99
+-- "2018-05-01 00:00:00"	    "May 2018"	            6749	   144.84	            4.99	           4400.00	                89.99
+-- "2018-06-01 00:00:00"	    "Jun 2018"	            6096	   140.35	            3.50	           4590.00	                89.90
+-- "2018-07-01 00:00:00"	    "Jul 2018"	            6156	   140.92	            3.00	           7160.00	                86.00
+-- "2018-08-01 00:00:00"	    "Aug 2018"	            6351	   132.04	            2.20	           4399.87	                79.99
+
+
+
+-- Query 6 : DAY OF WEEK REVENUE PATTERN
+-- Business question: Which days do customers order most?
+-- Why it matters: Marketing teams use this to time campaigns, email sends, and promotions.
+
+SELECT
+    TRIM(order_day_of_week) AS day_of_week,
+    EXTRACT(DOW FROM order_purchase_timestamp) AS day_num,
+    COUNT(DISTINCT order_id) AS total_orders,
+    ROUND(SUM(item_price), 2) AS gmv,
+    ROUND(AVG(item_price), 2) AS avg_order_value
+FROM delivered_orders
+GROUP BY TRIM(order_day_of_week), EXTRACT(DOW FROM order_purchase_timestamp)
+ORDER BY day_num;
+
+
+-- OUTPUT:
+--      "day_of_week"	"day_num"	"total_orders"	      "gmv"	    "avg_order_value"
+--      "Sunday"	        0	        11632	        1545181.07	   117.71
+--      "Monday"	        1	        15701	        2168905.61	   120.68
+--      "Tuesday"	        2	        15502	        2122147.22	   118.84
+--      "Wednesday"	        3	        15074	        2051158.81	   119.14
+--      "Thursday"	        4	        14322	        1958421.49	   119.18
+--      "Friday"	        5	        13684	        1910385.13	   121.70
+--      "Saturday"	        6	        10555	        1464049.60	   123.18
+
+
+-- Query 7 — Peak Revenue Hours
+
+-- 7. HOURLY ORDER PATTERN
+-- Business question: What time of day do most orders happen?
+-- Why it matters: This tells you when your servers are busiest and when to schedule maintenance or email drops.
+
+SELECT
+    EXTRACT(HOUR FROM order_purchase_timestamp)  AS hour_of_day,
+    COUNT(DISTINCT order_id)                     AS total_orders,
+    ROUND(SUM(item_price), 2)                    AS gmv,
+    ROUND(AVG(item_price), 2)                    AS avg_order_value
+FROM delivered_orders
+GROUP BY EXTRACT(HOUR FROM order_purchase_timestamp)
+ORDER BY hour_of_day;
+
+
+-- OUTPUT:
+--       "hour_of_day"	"total_orders"	"gmv"	    "avg_order_value"
+--              0	        2321	    307166.35	    115.69
+--              1	        1133	    147608.07	    116.78
+--              2	        496	        54028.76	    93.96
+--              3	        259	        32100.68	    107.36
+--              4	        203	        24191.61	    99.97
+--              5	        182	        21905.22	    102.84
+--              6	        477	        53443.91	    100.46
+--              7	        1199	    147781.69	    110.04
+--              8	        2907	    386356.06	    115.78
+--              9	        4647	    666581.16	    124.69
+--              10         5978	        813492.67	    118.22
+--              11         6385	        852420.68	    117.22
+--              12         5802	        814872.16	    122.35
+--              13         6309	        848708.07	    117.48
+--              14         6383	        925967.10	    124.88
+--              15         6249	        880248.22	    122.02
+--              16         6475	        907844.74	    121.40
+--              17         5961	        812172.99	    118.79
+--              18         5585	        798578.94	    124.97
+--              19         5801	        800102.61	    121.65
+--              20         6007	        829998.61	    123.27
+--              21         6039	        811540.81	    120.12
+--              22         5658	        768521.96	    120.12
+--              23         4014	        514615.86	    113.15  
+
+

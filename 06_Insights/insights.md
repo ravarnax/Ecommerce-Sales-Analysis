@@ -82,3 +82,108 @@ AOV Stability           Healthy             "Hovering around $120. The business 
 Customer Acquisition    Aggressive          "Total Orders vs Unique Customers shows almost no repeat business. You are ""buying"" growth."
 Logistics Efficiency    Critical            "The 18% freight ratio in 2018 is a ""Profit Leak"" that needs immediate attention."
 
+
+
+### 5. AVERAGE ORDER VALUE TREND 
+
+Compare avg vs median order value. If avg is much higher than median, expensive orders are skewing the average — median is the truer picture of typical customer behavior."
+
+
+The Trend: Your Average ($120.33) is consistently ~$35–$40 higher than your Median (~$80–$85).
+The Conclusion: AuraTech’s revenue is positively skewed. This confirms that a small percentage of high-ticket "Whale" orders (visible in your max_order_value column) is pulling the average upward.
+
+
+
+Critical Insights :
+1. The "Whale" Dependency:
+    The gap between $120$ and $85$ means your "typical" customer spends 30% less than the average suggests.
+
+    The Lesson: If you base your marketing budget (Cost Per Acquisition) on the $120 average, you will overspend. You must optimize for the $85$ customer to remain profitable for the majority of your base.
+
+
+2. Identifying "B2B" vs. "B2C":
+    Look at the max_order_value in your output. If you see values like $6,735, that is not a standard retail consumer; that is a business or a bulk buyer.
+    
+    The Lesson: A Senior Analyst separates these. One single $6,000 order has the same impact on the Average as 70 normal customers. In Power BI, use Median to describe user behavior and Sum to describe financial performance.
+    
+3. Stability vs. Volatility:
+    Notice if the Median remains flat while the Average fluctuates month-to-month.
+    
+    The Lesson: Fluctuations in the Average usually mean you ran a promotion on expensive items (like Furniture). If the Median stays flat, your "Core" customer behavior hasn't changed. The Median is your shield against noise.
+
+
+4. Operational Accuracy : 
+    The MIN(order_gmv) check is your final safety net.
+    
+    The Lesson: If the min_order_value is extremely low (e.g., $0.85$), check if freight was charged. Shipping a $1 item costs the same as shipping a $100 item. Low-value orders are often negative-margin traps for the business.
+
+
+Senior Tip: In your final project presentation, show both. Use the Average to show Revenue Potential and the Median to show Customer Reality.
+
+
+### Query 6 — Day of Week Revenue Pattern
+
+"Monday and Tuesday typically show highest order volume in e-commerce. Does Olist follow this pattern? What does this mean for when Olist should run promotions?"
+
+The Pattern Analysis
+Yes, Olist follows the classic e-commerce pattern perfectly. According to your data, Monday (15,701 orders) and Tuesday (15,502 orders) are the undisputed peak days for transaction volume. This represents a 48% surge compared to the Saturday low (10,555).
+
+Precise Business Analysis
+1. The "Monday Motivation" Peak
+Monday is the strongest day for both Volume (15,701) and Velocity. In e-commerce, this is usually caused by "Weekend Catch-up." Customers browse over the weekend but wait until the work week begins—when they are back at their desks and in "execution mode"—to finalize the purchase.
+
+2. The "Weekend Valley"
+Saturday (10,555) and Sunday (11,632) are the lowest volume days.
+
+Insight: People are away from their screens and out living their lives.
+
+The Counter-Intuitive Twist: Look at the Average Order Value (AOV). Saturday has the highest AOV ($123.18).
+
+Senior Interpretation: While fewer people shop on Saturday, those who do are likely buying deliberate, high-ticket items (like Furniture or Appliances) rather than small impulse buys.
+
+Strategic Promotion Recommendations
+As a Senior Analyst, I would advise the marketing team to use this data for a two-pronged strategy:
+
+![strategy](image.png)
+
+### Junior Analyst Insight: The "Operational Strain"
+
+    Why does this matter beyond marketing? Logistics.
+    If your orders spike on Monday/Tuesday, your warehouse and sellers will be overwhelmed by Tuesday afternoon.
+
+    The lesson: If Olist offers a "2-day shipping" promise, a Monday order must ship by Wednesday. If the Monday surge is too high, you will see a spike in Late Deliveries.
+
+### Query 7 — Peak Revenue Hours
+
+"What time of day do customers buy the most?"
+
+The Pattern Analysis
+    The data shows a very distinct "Productive Hours" shopping cycle. Unlike entertainment platforms that peak late at night, Olist sees its heaviest traffic during standard business and afternoon hours.
+
+    The Peak Window: The peak occurs between 10:00 (10 AM) and 16:00 (4 PM), with volume holding remarkably steady above 6,000 orders per hour during this block.
+
+    The "Dead Zone": Orders bottom out between 03:00 and 05:00, where volume drops to ~200 orders per hour (a 97% decrease from peak).
+
+Precise Business Analysis
+1. The "Workday Shopper" Persona
+    The highest volume peaks at 16:00 (4:00 PM) with 6,475 orders.
+
+    Insight: Shopping behavior is closely tied to the workday. Volume ramps up sharply at 08:00 (when people start work) and stays high until 22:00. This suggests customers are shopping during breaks or as a "reward" at the end of their workday.
+
+2. The "After-Dinner" Surge
+    Notice the secondary peak at 20:00 and 21:00 (8-9 PM).
+
+    Insight: After a brief dip during the commute/dinner hour (17:00–18:00), customers return for one last session before bed. Interestingly, the Average Order Value (AOV) at 20:00 ($123.27) is higher than the morning peaks.
+
+
+![strategy recommedation](image-1.png)
+
+### Junior Analyst Insight: AOV vs. Volume
+    The "Night Owl" Premium:
+         Notice that 09:00 AM ($124.69), 14:00 PM ($124.88), and 18:00 PM ($124.97) have the highest AOVs.
+
+The Lesson:
+     Volume and Value don't always peak at the exact same second. The 18:00 (6 PM) shopper may be buying fewer things, but they are buying more expensive items.
+
+Senior Warning on Server Load:
+    If you are planning a Black Friday event based on this data, you must prepare your servers for a "Dual Peak." You will have a sustained 6-hour load in the afternoon and a sudden, sharp spike between 8 PM and 10 PM. If your checkout process lags at 4 PM, you will lose the most revenue of the day.
