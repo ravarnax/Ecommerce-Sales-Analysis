@@ -238,7 +238,199 @@ new geographies — not just acquisition.
 > public dataset. Partial year data (2016, 2018) excluded
 > from year-over-year comparisons. Revenue figures in BRL.
 > Analysis conducted as part of portfolio project.
-> Author: [Your Name] | Date: [Today's Date]
+
+
+
+
+## Section 8 — Customer Behavior Analysis
+
+> Analysis based on 93,350 unique customers across delivered orders.
+> RFM reference date: 2018-08-31 (dataset end date).
+> All revenue figures in Brazilian Real (BRL, R$).
+
+---
+
+### 8.1 Purchase Frequency Distribution
+
+| Orders Placed | Customers | % of Base | Avg LTV (R$) |
+|---------------|-----------|-----------|--------------|
+| 1 order       | 90,557    | 97.00%    | ~R$ 85       |
+| 2 orders      | 2,746     | 2.95%     | ~R$ 170      |
+| 3 orders      | 193       | 0.21%     | ~R$ 255      |
+| 4+ orders     | 47        | 0.05%     | ~R$ 354+     |
+
+**Key finding:** 97% of Olist's customer base has never returned
+after their first purchase. Only 47 customers out of 93,350 can
+be classified as Champion-level repeat buyers. This is the most
+critical risk metric in this entire analysis.
+
+**Business recommendation:**
+> Even moving the needle from 3% to 6% repeat purchase rate
+> would double the revenue contribution of returning customers
+> without spending a single additional Real on acquisition.
+> A post-purchase email sequence, loyalty points system, or
+> even a simple "you might also like" recommendation engine
+> would likely produce measurable improvement given how low
+> the baseline currently is.
+
+---
+
+### 8.2 Customer Lifetime Value (LTV) Segmentation
+
+Customers divided into quartiles by total spend across all orders.
+
+| Segment              | Customers | Avg LTV (R$) | % of Total Revenue |
+|----------------------|-----------|--------------|--------------------|
+| Platinum — top 25%   | ~23,338   | R$ 354.23    | 62.5%              |
+| Gold — upper mid 25% | ~23,338   | —            | —                  |
+| Silver — lower mid 25%| ~23,338  | —            | —                  |
+| Bronze — bottom 25%  | ~23,338   | R$ 29.10     | —                  |
+
+**Key finding:** The top 25% of customers generate 62.5% of all
+revenue. The gap between Platinum avg LTV (R$ 354) and Bronze
+avg LTV (R$ 29) is a 12x difference. These are not the same
+customer — they should never receive the same marketing message.
+
+**Business recommendation:**
+> Platinum customers must be identified and protected first.
+> Build a suppression list of Bronze customers for paid
+> acquisition lookalike audiences — you do not want to spend
+> money acquiring more R$ 29 customers. Model your acquisition
+> targeting on Platinum customer characteristics instead.
+
+---
+
+### 8.3 RFM Segmentation Results
+
+**Methodology note:** RFM scores each customer on three dimensions
+(Recency, Frequency, Monetary value) independently using NTILE(4)
+quartile scoring. A customer can score high on Recency (bought
+recently) even if they only bought once — which is why RFM
+segment counts do not directly match the raw frequency
+distribution above. Both analyses are valid and measure
+different things.
+
+| RFM Segment         | Customers | % of Customers | % of Revenue | Avg LTV (R$) |
+|---------------------|-----------|----------------|--------------|--------------|
+| Champions           | 23,254    | 24.9%          | 51.3%        | High         |
+| Loyal Customers     | 23,666    | 25.3%          | 29.6%        | Medium-high  |
+| Needs Attention     | 23,233    | 24.9%          | 8.3%         | Low-medium   |
+| Potential Loyalists | 11,274    | 12.1%          | 3.9%         | Low-medium   |
+| At Risk             | 5,949     | 6.4%           | 5.4%         | Medium       |
+| Lost Customers      | 5,974     | 6.4%           | 1.3%         | Low          |
+
+**Segment definitions:**
+- Champions — bought recently, buy often, spend the most
+- Loyal Customers — buy regularly, good spend, slightly less recent
+- Needs Attention — average across all three dimensions, declining engagement
+- Potential Loyalists — recent buyers with moderate frequency, worth nurturing
+- At Risk — used to spend well but have not returned recently
+- Lost Customers — low recency, low frequency, low spend — effectively churned
+
+**Key finding — the Pareto effect amplified:**
+The top two RFM segments (Champions + Loyal Customers) represent
+50.2% of customers but generate 80.9% of all revenue. Half your
+customer base is funding 80% of the business. Losing even a
+fraction of this group would be catastrophic.
+
+**Business recommendations by segment:**
+
+| Segment             | Recommended Action                                          |
+|---------------------|-------------------------------------------------------------|
+| Champions           | Reward them. Early access, VIP perks, referral incentives. |
+| Loyal Customers     | Upsell to higher categories. Protect with loyalty program. |
+| Needs Attention     | Re-engage with personalized email. Limited-time offer.     |
+| Potential Loyalists | Second purchase incentive. Free shipping on next order.    |
+| At Risk             | Win-back campaign. Survey why they stopped.                |
+| Lost Customers      | Exclude from paid ads. One final re-engagement attempt.    |
+
+---
+
+### 8.4 Geographic Customer Concentration
+
+| Rank | State         | Unique Customers | % of Total |
+|------|---------------|-----------------|------------|
+| 1    | SP (São Paulo)| ~39,188         | 41.92%     |
+| 2    | RJ (Rio)      | —               | —          |
+| 3    | MG (Minas)    | —               | —          |
+| Top 3 combined | —    | —               | 66.46%     |
+
+**Key finding — the Southeast concentration:**
+Two thirds of Olist's entire customer base lives in three
+adjacent southeastern states. This makes current logistics
+efficient for the majority but creates three structural risks:
+
+1. A regional disruption (weather, strikes, infrastructure)
+in the Southeast could simultaneously impact 66% of revenue
+2. The remaining 34% of Brazil is significantly underserved —
+this is an untapped growth opportunity, not just a gap
+3. Seller concentration likely mirrors customer concentration,
+which means long-distance deliveries to the North and
+Northeast are both slower and more expensive — directly
+explaining the logistics cost increase identified in the
+Revenue Analysis section
+
+**Business recommendation:**
+> Prioritize seller recruitment in the North (AM, PA) and
+> Northeast (BA, CE, PE) regions. A seller closer to an
+> underserved customer cuts freight cost, cuts delivery time,
+> and improves review scores simultaneously — three KPIs
+> improved with one strategic move.
+
+---
+
+### 8.5 Power BI Dashboard — Customer Page Build Notes
+
+| Visual                  | Type         | X / Axis field      | Y / Value field      | Legend / Color        |
+|-------------------------|--------------|---------------------|----------------------|-----------------------|
+| New vs returning trend  | Stacked bar  | order_month_name    | unique_customers     | customer_type         |
+| Cumulative customers    | Area chart   | acquisition_month   | cumulative_customers | —                     |
+| RFM segment breakdown   | Donut chart  | rfm_segment         | customer_count       | rfm_segment           |
+| LTV by segment          | Bar chart    | customer_segment    | avg_ltv              | customer_segment      |
+| Customer map by state   | Filled map   | customer_state      | unique_customers     | gradient scale        |
+| Buyer segment table     | Table visual | buyer_segment       | all metrics          | conditional format    |
+
+**Conditional formatting rules for buyer segment table:**
+- avg_ltv column → color scale (white → green, low → high)
+- avg_satisfaction_score → color scale (red → green)
+- customer_count → data bars
+
+**Slicer to add on this page:**
+- order_year (to show how segments shift year over year)
+- customer_state (to filter geographic view)
+
+---
+
+### 8.6 Key Strategic Takeaways
+
+**Takeaway 1 — The Pareto Principle, amplified**
+Champions (25% of customers) generate 51.3% of revenue.
+The top half of the RFM base funds 80.9% of the company.
+Every retention investment should start here, not with
+broad acquisition campaigns.
+
+**Takeaway 2 — The lost customer budget drain**
+5,974 customers are officially Lost, contributing only 1.3%
+of revenue. In a real business, these customers should be
+immediately removed from all paid advertising audiences.
+Continuing to target them wastes budget on people who
+have already decided to leave.
+
+**Takeaway 3 — The Southeast logistics dependency**
+66.46% of customers concentrated in SP, RJ, and MG creates
+both a logistics efficiency advantage today and a single
+point of failure risk tomorrow. Geographic diversification
+of both customers and sellers is the highest-leverage
+long-term strategic move available to Olist.
+
+**Takeaway 4 — The retention math**
+97% one-time buyers. 3% return rate. The entire 706% revenue
+growth identified in the Revenue Analysis section was funded
+purely by new customer acquisition. This is not sustainable.
+The cost of acquiring a new customer is always higher than
+the cost of retaining an existing one. Olist is currently
+paying the most expensive possible price for every unit of
+revenue growth.
 
 
 

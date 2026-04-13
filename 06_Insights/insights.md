@@ -342,3 +342,128 @@ Here is the in-depth analysis of your results:
 3.  **Key Insight Card:** *"A Champion Customer is worth 4.8x more than a One-Time buyer and explores 180% more of our product catalog."*
 
 **Does this finalize your Customer Analysis, or shall we look at the "Category Deep Dive" to see which products specifically create these Champions?**
+
+
+
+-- QUERY 5 - CUSTOMER ACQUISITION TREND
+
+This analysis of the **Customer Acquisition Trend** provides the "Scale" story of AuraTech. While your previous queries focused on money (GMV), this query focuses on **Market Penetration**.
+
+By August 2018, you have built a platform with a total reach of **93,350 unique customers.** ---
+
+### **1. The Three Phases of Growth**
+
+Looking at the `new_customers_acquired` column, the business clearly moved through three distinct life cycles:
+
+* **Phase 1: The Pilot (Late 2016)**
+    * Acquiring ~250–300 customers a month. The business was testing its systems and logistics.
+* **Phase 2: The Hyper-Growth "S-Curve" (2017)**
+    * **January 2017:** 700+ new users.
+    * **May 2017:** 3,300+ new users.
+    * **November 2017:** **6,926 new users (The all-time peak).**
+    * *Insight:* In just 11 months, your monthly acquisition velocity increased by **980%**. This is the classic "Hockey Stick" growth investors love.
+* **Phase 3: The Scaling Plateau (2018)**
+    * Acquisition stabilized between **6,100 and 6,800** new users per month. 
+    * *Senior Interpretation:* The "low-hanging fruit" in the market has been picked. The company is now in a "Maintenance & Scale" phase where customer acquisition costs (CAC) likely started to rise.
+
+### **2. The "Hero Chart": Cumulative Growth**
+The `cumulative_customers` column is your most powerful asset for an investor presentation. 
+* **Milestone 1:** You crossed **10,000** total users in **May 2017**.
+* **Milestone 2:** You crossed **50,000** total users in **January 2018**.
+* **Milestone 3:** You finished the dataset at **93,350** users.
+* **Why it's the "Hero":** Even if monthly growth looks "flat" in 2018, the cumulative line is a beautiful diagonal climb. It proves the platform is **retaining its market share** even if the *rate* of new user discovery has leveled off.
+
+### **3. Strategic "Senior Analyst" Insight: The Growth Trap**
+Compare this data to your earlier **Retention Query** (where we found that 97% of people only buy once):
+* **The Reality:** Your cumulative growth of 93k users is impressive, but because retention is so low, this 93k is a **leaky bucket**. 
+* **The Risk:** If marketing stopped today, your revenue would plummet because you don't have a "base" of users. You are essentially "renting" these 93k users, not "owning" them.
+
+---
+
+### **⚠️ Technical Note: Cleaning your SQL Output**
+I noticed your output has a "bug" where one month (like Oct 2016) shows multiple names (Apr 2017, Jun 2018, etc.) because you used `MIN(order_month_name)` and grouped by it. 
+
+**To get a clean line for Power BI, use this simplified Grouping:**
+```sql
+SELECT
+    acquisition_month,
+    -- Just take the first name encountered for the month
+    MAX(acquisition_month_name) AS month_label, 
+    COUNT(customer_unique_id) AS new_customers_acquired,
+    SUM(COUNT(customer_unique_id)) OVER (ORDER BY acquisition_month) AS cumulative_customers
+FROM first_orders
+GROUP BY acquisition_month
+ORDER BY acquisition_month;
+```
+
+---
+
+### **Power BI Visualization Guide: The "Investor Slide"**
+
+1.  **The Hero Visual (Area Chart):**
+    * **X-Axis:** `acquisition_month`
+    * **Y-Axis:** `cumulative_customers`
+    * *Style:* Use a "Smooth Line" with a gradient fill under it. It should look like a mountain climbing to the right.
+2.  **The Velocity Visual (Bar Chart):**
+    * **X-Axis:** `acquisition_month`
+    * **Y-Axis:** `new_customers_acquired`
+    * *Insight:* This shows the "fuel" (new users) being added to the engine every month.
+3.  **The Milestone Card:**
+    * Create a Big Number card: **"93.4K Total Platform Reach"**.
+
+**Next Step Recommendation:** Now that we know how we *get* customers, we should look at **Query 6: Payment Behavior**. Are these 93k users paying in full, or are they relying on installments? This will tell us about the "Credit Risk" of your customer base.
+
+
+
+**Query 6: Payment Behavior**
+
+This geographic distribution table provides a clear map of where AuraTech’s (Olist) business lives and where it struggles. As a Senior Analyst, I see a business that is highly concentrated in the Southeast of Brazil, which creates a specific set of logistical advantages and strategic vulnerabilities.
+
+### **Direct Answers**
+* **State with the most customers:** **São Paulo (SP)** with **39,149** unique customers.
+* **Percentage of total customers (SP):** **41.92%**. 
+
+---
+
+### **Strategic Analysis: Geographic Concentration**
+
+#### **1. The "São Paulo Powerhouse"**
+São Paulo is more than just the top state; it is the engine of the entire platform. 
+* **The Scale:** With nearly **42% of the customer base**, SP alone has more customers than the next **10 states combined**.
+* **The Efficiency:** It has the fastest delivery (**8.7 days**) and a high satisfaction score (**4.18**).
+* **The Risk:** This is a "Single Point of Failure." If a logistics strike or a local economic downturn hits São Paulo, nearly half of AuraTech's revenue disappears instantly.
+
+#### **2. The "Logistics-Sentiment" Correlation**
+There is a clear trend: as you move further from the Southeast (SP/MG/PR), delivery times increase and satisfaction scores tend to dip.
+* **The Red Flag (RJ):** Rio de Janeiro is the second-largest market (12.76%), yet it has one of the **lowest satisfaction scores (3.87)** and a delivery time nearly double that of SP (**15.1 days**). 
+* **The Frontier (AP/RR):** Remote states like Amapá (AP) and Roraima (RR) take **28 days** to deliver. While they represent a tiny fraction of customers, the logistical burden to serve them is massive.
+
+#### **3. The "Value Gap" Opportunity**
+Interestingly, customers in remote states spend **significantly more per order** than those in São Paulo.
+* **SP AOV:** $109.10
+* **PB (Paraíba) AOV:** **$192.13** (The highest in the dataset)
+* **AL (Alagoas) AOV:** $184.67
+* **The Insight:** Customers in the North and Northeast are likely using AuraTech to buy high-ticket items that are not available in their local brick-and-mortar stores. Even though shipping is expensive and slow, they are willing to pay a premium.
+
+---
+
+### **Executive Recommendations for your Portfolio**
+
+| Observation | Risk/Opportunity | Strategic Action |
+| :--- | :--- | :--- |
+| **SP Dominance** | **Risk:** Over-reliance on one region. | Diversify marketing spend into **MG (Minas Gerais)** and **PR (Paraná)**, which already show healthy delivery speeds (~12 days). |
+| **RJ Dissatisfaction** | **Risk:** High churn in a major market. | Investigate why RJ is underperforming. Is it security-related delays or specific carrier issues in Rio? |
+| **Remote High AOV** | **Opportunity:** Profitable "Whales." | Create "Express Shipping" tiers for high-value regions like **PB** and **AL**. These customers spend almost 2x the average; they might pay more for faster delivery. |
+
+### **Power BI Visualization Step**
+When you build your dashboard:
+1.  **Filled Map:** Use `customer_state` as the location and `unique_customers` as the color saturation.
+2.  **Scatter Chart:** Plot `avg_delivery_days` (X-Axis) against `avg_review_score` (Y-Axis). You will see a downward sloping line—this is your visual proof that **speed equals happiness**.
+3.  **Tooltip:** When hovering over a state on the map, show the **AOV** vs **Avg Freight**. This will highlight the "High Spend, High Cost" nature of the Northern states.
+
+**Would you like to analyze the "Top 10 Cities" next?** Usually, 80% of those SP customers are concentrated in just 2 or 3 specific metro areas.
+
+
+
+**7. RFM SEGMENTATION**
+
