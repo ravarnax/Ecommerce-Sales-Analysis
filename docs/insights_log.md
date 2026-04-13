@@ -239,3 +239,6 @@ new geographies — not just acquisition.
 > from year-over-year comparisons. Revenue figures in BRL.
 > Analysis conducted as part of portfolio project.
 > Author: [Your Name] | Date: [Today's Date]
+
+
+

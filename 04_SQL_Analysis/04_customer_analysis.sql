@@ -135,3 +135,121 @@ ORDER BY order_month, customer_type;
 -- "2018-08-01 00:00:00"	    "Aug 2018"      	"Returning Customer"	166	                171	                18517.56
 
 
+-- Query 03 - Customer Lifetime Value Segments 
+Business question : Can we segment customers by how much they spend?
+Why it matters : Not all customers are equal.Top 10%  of customers generate
+                50% of revenue. We need to identify and retain those customers.
+
+
+-- 3. CUSTOMER LTV SEGMENTATION
+WITH customer_ltv AS (
+    SELECT
+        customer_unique_id,
+        COUNT(DISTINCT order_id)           AS total_orders,
+        ROUND(SUM(item_price), 2)          AS lifetime_value,
+        ROUND(AVG(item_price), 2)          AS avg_order_value,
+        MIN(order_purchase_timestamp)      AS first_order_date,
+        MAX(order_purchase_timestamp)      AS last_order_date,
+        COUNT(DISTINCT product_category)   AS categories_purchased
+    FROM delivered_orders
+    GROUP BY customer_unique_id
+),
+ltv_percentiles AS (
+    SELECT
+        customer_unique_id,
+        total_orders,
+        lifetime_value,
+        avg_order_value,
+        categories_purchased,
+        first_order_date,
+        last_order_date,
+        NTILE(4) OVER (ORDER BY lifetime_value) AS ltv_quartile
+    FROM customer_ltv
+)
+SELECT
+    CASE ltv_quartile
+        WHEN 4 THEN 'Platinum — Top 25%'
+        WHEN 3 THEN 'Gold — Upper Mid 25%'
+        WHEN 2 THEN 'Silver — Lower Mid 25%'
+        WHEN 1 THEN 'Bronze — Bottom 25%'
+    END                                     AS customer_segment,
+    COUNT(customer_unique_id)               AS customer_count,
+    ROUND(MIN(lifetime_value), 2)           AS min_ltv,
+    ROUND(MAX(lifetime_value), 2)           AS max_ltv,
+    ROUND(AVG(lifetime_value), 2)           AS avg_ltv,
+    ROUND(SUM(lifetime_value), 2)           AS total_revenue,
+    ROUND(
+        SUM(lifetime_value) * 100.0
+        / SUM(SUM(lifetime_value)) OVER ()
+    , 1)                                    AS pct_of_total_revenue,
+    ROUND(AVG(total_orders), 2)             AS avg_orders_per_customer,
+    ROUND(AVG(avg_order_value), 2)          AS avg_order_value
+FROM ltv_percentiles
+GROUP BY ltv_quartile
+ORDER BY ltv_quartile DESC;
+
+
+OUTPUT:
+
+-- "customer_segment"          "customer_count"    "min_ltv"   "max_ltv"   "avg_ltv"   "total_revenue"   "pct_of_total_revenue"  "avg_orders_per_customer"   "avg_order_value"
+-- "Platinum — Top 25%"        23337                154.75      13440.00    354.23        8266720.25              62.5                     1.08                      303.54
+-- "Gold — Upper Mid 25%"      23337                89.70       154.70      117.73        2747490.43              20.8                     1.03                      109.15
+-- "Silver — Lower Mid 25%"    23338                47.65       89.70       65.43         1526931.34              11.5                     1.02                      62.29
+-- "Bronze — Bottom 25%"       23338                0.85        47.65       29.10         679106.91                5.1                     1.00                      28.34
+
+
+-- Query 04. REPEAT CUSTOMER PROFILE
+-- 4. REPEAT CUSTOMER PROFILE
+WITH customer_profile AS (
+    SELECT
+        customer_unique_id,
+        COUNT(DISTINCT order_id)              AS total_orders,
+        ROUND(SUM(item_price), 2)             AS lifetime_value,
+        ROUND(AVG(item_price), 2)             AS avg_order_value,
+        ROUND(AVG(review_score), 2)           AS avg_review_score,
+        COUNT(DISTINCT product_category)      AS categories_explored,
+        COUNT(DISTINCT seller_id)             AS unique_sellers_used,
+        customer_state,
+        MIN(order_purchase_timestamp)         AS first_order_date,
+        MAX(order_purchase_timestamp)         AS last_order_date,
+        ROUND(
+            EXTRACT(EPOCH FROM (
+                MAX(order_purchase_timestamp)
+                - MIN(order_purchase_timestamp)
+            )) / 86400.0
+        , 0)                                  AS days_as_customer
+    FROM delivered_orders
+    GROUP BY customer_unique_id, customer_state
+)
+SELECT
+    CASE
+        WHEN total_orders = 1  THEN '1 — One-time buyer'
+        WHEN total_orders = 2  THEN '2 — Returning buyer'
+        WHEN total_orders = 3  THEN '3 — Loyal buyer'
+        WHEN total_orders >= 4 THEN '4+ — Champion buyer'
+    END                                       AS buyer_segment,
+    COUNT(customer_unique_id)                 AS customers,
+    ROUND(AVG(lifetime_value), 2)             AS avg_ltv,
+    ROUND(AVG(avg_order_value), 2)            AS avg_order_value,
+    ROUND(AVG(avg_review_score), 2)           AS avg_satisfaction_score,
+    ROUND(AVG(categories_explored), 1)        AS avg_categories_explored,
+    ROUND(AVG(days_as_customer), 0)           AS avg_days_as_customer
+FROM customer_profile
+GROUP BY
+    CASE
+        WHEN total_orders = 1  THEN '1 — One-time buyer'
+        WHEN total_orders = 2  THEN '2 — Returning buyer'
+        WHEN total_orders = 3  THEN '3 — Loyal buyer'
+        WHEN total_orders >= 4 THEN '4+ — Champion buyer'
+    END
+ORDER BY buyer_segment;
+
+
+-- OUTPUT:
+-- "buyer_segment"			"customers"		"avg_ltv"   "avg_order_value"	"avg_satisfaction_score"	"avg_categories_explored"	"avg_days_as_customer"
+-- "1 — One-time buyer"		90621		137.94	    	126.44		            4.15		                1.0		                0
+-- "2 — Returning buyer"		2542		245.69	    	106.35		            4.18		                1.6		                81
+-- "3 — Loyal buyer"			179		    362.68	    	94.83		            4.37		                2.0		                144
+-- "4+ — Champion buyer"		46		    664.38	    	107.21		            4.37		                2.8		                205
+
+

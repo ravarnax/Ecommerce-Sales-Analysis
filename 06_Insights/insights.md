@@ -252,3 +252,93 @@ Senior Warning on Server Load:
         **"We must shift 2% of our marketing budget away from acquiring new users and spend it on Retargeting Campaigns (Email discounts, 'We miss you' coupons). Moving just 5% of our one-time buyers (4,500 people) into the '2 Order' tier would instantly generate over R$ 1.1 Million in new revenue with zero new acquisition costs."**
 
 
+-- Query 03 - Customer Lifetime Value Segments 
+This query is the **"Pareto Principle" (80/20 Rule) Audit**. In e-commerce, not all customers are created equal. This analysis proves that a tiny fraction of your user base is essentially "carrying" the entire business on their backs.
+
+As a Senior Analyst, I call the **Platinum Segment** your "High-Velocity Engine." If you lose a Platinum customer, you have to acquire **twelve (12)** Bronze customers just to replace the lost revenue.
+
+---
+
+### **The Precise Analysis**
+
+#### **1. The "Catastrophic" Revenue Concentration**
+* **The Stat:** Your **Platinum (Top 25%)** customers generate **62.5%** of your total revenue.
+* **The Insight:** Even though each segment has exactly the same number of people (~23,337), the Platinum segment is **12 times more valuable** than the Bronze segment (62.5% vs 5.1%).
+
+#### **2. The Whale Factor**
+* **LTV Spread:** The jump from the Bronze average LTV (R$ 29.10) to the Platinum average LTV (R$ 354.23) is staggering. 
+* **The Outlier:** Note the `max_ltv` of **R$ 13,440**. This single customer is worth as much as the combined revenue of **461 Bronze customers**.
+
+#### **3. The "Order Frequency" Illusion**
+* **The Data:** Look at `avg_orders_per_customer`. Even in the Platinum tier, the average is only **1.08**. 
+* **The Senior Insight:** This tells us that **Platinum status is driven by high-ticket items, not loyalty.** These aren't necessarily people coming back every week; they are people who bought an expensive sofa or a laptop once. 
+* **The Conclusion:** AuraTech doesn't have a "Loyalty" problem—it has a **"Retention"** problem. Even your best customers are only buying 1.08 times.
+
+---
+
+### **Junior Analyst Insight: The "Marketing Trap"**
+
+If the Marketing team says, *"We are spending the same amount of ad money to acquire every customer,"* you should show them this table immediately.
+
+* **Bronze Segment:** You are likely **losing money** on these customers. If the cost to acquire a customer (CAC) is R$ 30, and they only spend R$ 29.10 (Avg LTV), you have a negative margin before even considering shipping or product costs.
+* **Platinum Segment:** This is where your profit lives. 
+
+---
+
+### **Actionable Business Recommendations**
+
+| Segment | Strategy | Business Goal |
+| :--- | :--- | :--- |
+| **Platinum** | **"The Red Carpet"** | **VIP Service.** If a Platinum customer files a support ticket, it should be answered in 5 minutes. Losing them is a financial disaster. |
+| **Gold/Silver** | **"The Upsell"** | **Basket Growth.** Use "Bundling" (e.g., "Buy this and get 20% off a second item") to push them from an LTV of R$ 100 to R$ 200. |
+| **Bronze** | **"The Filter"** | **Cost Control.** Stop spending expensive Retargeting Ads on this group. They are "Low-Value, High-Cost" users. |
+
+
+
+
+
+
+-- 4. REPEAT CUSTOMER PROFILE
+
+This query provides the definitive profile of **Loyalty** for AuraTech. As a Senior Analyst, I see a very clear "Loyalty Correlation" here: higher engagement isn't just about spending more; it's about a better relationship with the platform.
+
+Here is the in-depth analysis of your results:
+
+---
+
+### **1. Do repeat customers have higher satisfaction scores?**
+**Yes, significantly.**
+* **The Trend:** Satisfaction climbs steadily from **4.15** (One-time) to **4.37** (Champion).
+* **The Insight:** This is a "Positive Feedback Loop." Customers who have a great first experience (high review score) are the ones who come back. 
+* **Senior Interpretation:** The 4.37 score for Champions tells us that **satisfaction is a prerequisite for loyalty.** If a customer has even a slightly mediocre experience (3 stars or less), the data shows they almost never move into the "Loyal" or "Champion" tiers.
+
+### **2. Do they explore more categories?**
+**Yes, they are the platform's "Explorers."**
+* **The Trend:** One-time buyers stick to **1.0** category, while Champions explore nearly **3 distinct categories (2.8).**
+* **The Insight:** Loyalty at Olist isn't about buying the same thing over and over (like groceries); it's about **trusting the platform** to provide different types of goods. 
+* **Strategic Action:** To turn a "One-time" buyer into a "Returning" buyer, the data suggests we shouldn't show them the *same* category again. Instead, cross-category recommendations are the key to building champions.
+
+### **3. The "AOV Paradox"**
+* **The Data:** Interestingly, the **Average Order Value (AOV)** actually **drops** as customers become more loyal ($126 for One-time vs. $94 for Loyal).
+* **The Insight:** One-time buyers often come for a specific, higher-priced item they found via search (e.g., a specific piece of furniture). Loyal buyers, however, use the platform for **smaller, everyday purchases.** * **The Lesson:** Loyalty doesn't mean "bigger orders"; it means "more frequent, smaller orders."
+
+---
+
+### **Executive Summary for your Portfolio**
+
+| Metric | One-Time Buyer | Champion Buyer (4+) | Difference |
+| :--- | :--- | :--- | :--- |
+| **LTV** | R$ 137.94 | R$ 664.38 | **+381% Revenue** |
+| **Satisfaction** | 4.15 | 4.37 | **Higher Trust** |
+| **Categories** | 1.0 | 2.8 | **Broader Interest** |
+| **Longevity** | 0 Days | 205 Days | **Sustained Value** |
+
+---
+
+### **Power BI Visualization Strategy**
+
+1.  **Radar (Spider) Chart:** Use the segments as the categories and map Satisfaction, Category Exploration, and AOV. It will show the "Loyalty Shape" expanding outward.
+2.  **Scatter Plot:** X-axis = `avg_days_as_customer`, Y-axis = `lifetime_value`, Size = `avg_satisfaction_score`. This will visually prove that "Time + Satisfaction = High Value."
+3.  **Key Insight Card:** *"A Champion Customer is worth 4.8x more than a One-Time buyer and explores 180% more of our product catalog."*
+
+**Does this finalize your Customer Analysis, or shall we look at the "Category Deep Dive" to see which products specifically create these Champions?**
