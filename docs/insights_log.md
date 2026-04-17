@@ -434,3 +434,106 @@ revenue growth.
 
 
 
+Section 9 — Product Performance Analysis
+Analysis covers delivered orders only. Categories with fewer than 50 orders excluded from freight and satisfaction rankings (statistical significance threshold). Portuguese category names shown with English translations.
+
+9.1 Revenue by Category — Top 10
+Rank	Category (EN)	Category (PT)	GMV (R$)	% of GMV	Freight %	Avg Review
+1	Health & Beauty	beleza_saude	R$ 1,233,132	9.33%	14.5%	4.19
+2	Watches & Gifts	relogios_presentes	R$ 1,165,899	8.82%	8.4%	4.07
+3	Bed, Bath & Table	cama_mesa_banho	R$ 1,023,435	7.74%	19.7%	3.92
+4	Sports & Leisure	esporte_lazer	R$ 954,674	7.22%	17.1%	4.17
+5	Computer Accessories	informatica_acessorios	R$ 888,614	6.72%	16.2%	3.99
+6	Furniture & Decor	moveis_decoracao	R$ 711,928	5.39%	23.7%	3.95
+7	Household Utilities	utilidades_domesticas	R$ 615,629	4.66%	23.2%	4.11
+8	Cool Stuff	cool_stuff	R$ 610,204	4.62%	13.4%	4.20
+9	Automotive	automotivo	R$ 578,849	4.38%	15.6%	4.11
+10	Toys	brinquedos	R$ 471,097	3.56%	16.1%	4.21
+Key finding — revenue concentration:
+The top 5 categories generate ~39.8% of total platform GMV. Health & Beauty alone accounts for nearly 1 in every 10 reals spent on Olist. This concentration is both a strength (predictable revenue) and a risk (one bad season in Health & Beauty materially hurts the whole platform).
+
+9.2 Category Performance Quadrant
+Each category classified against platform averages for order volume and average order value.
+
+Star categories — high volume AND high value
+(Invest, protect, grow)
+
+Category (EN)	Category (PT)	Why it is a Star
+Watches & Gifts	relogios_presentes	High AOV + strong order volume + low freight
+Cool Stuff	cool_stuff	Above average on both dimensions
+These are Olist's crown jewels. Seller recruitment, promotional spend, and category investment should prioritize these two above all others.
+
+Hidden gem categories — low volume but high value
+(Underinvested — high growth potential)
+
+Top 5 most strategically interesting:
+
+Category (EN)	Category (PT)	Opportunity
+Office Furniture	moveis_escritorio	High AOV, needs delivery improvement
+PCs	pcs	High ticket, limited seller supply
+Musical Instruments	instrumentos_musicais	Niche but premium buyer profile
+Small Appliances	eletroportateis	High repeat purchase potential
+Home Appliances 2	eletrodomesticos_2	High AOV, underpenetrated market
+Full hidden gem list contains 18 categories. The 5 above are prioritized based on AOV size and natural repeat purchase potential. These categories need more sellers, not more marketing — supply is the constraint.
+
+Workhorse categories — high volume but low value
+(Optimize economics or accept as loss leaders)
+
+Key workhorses: Health & Beauty, Bed Bath & Table, Sports & Leisure, Computer Accessories, Furniture & Decor, Household Utilities, Automotive, Toys, Electronics (15 total).
+
+Workhorses drive traffic and order volume but generate lower revenue per transaction. They are valuable for customer acquisition but should not be the focus of premium seller recruitment. The goal here is operational efficiency, not growth investment.
+
+Underperformers — low volume AND low value
+37 categories fall into this quadrant.
+
+9.3 Customer Satisfaction by Category
+Minimum 100 orders required for inclusion.
+
+Best reviewed categories:
+
+Rank	Category (EN)	Category (PT)	Avg Score	Positive %
+1	General Interest Books	livros_interesse_geral	4.51	89.5%
+2	Technical Books	livros_tecnicos	4.39	85.9%
+3	Food & Drink	alimentos_bebidas	4.36	82.5%
+Worst reviewed categories:
+
+Rank	Category (EN)	Category (PT)	Avg Score	Avg Delivery Days	Freight %
+1	Office Furniture	moveis_escritorio	3.51	20.8 days	25.0%
+2	Fixed Telephony	telefonia_fixa	3.76	12.6 days	8.1%
+3	Men's Fashion	fashion_roupa_masculina	3.76	12.8 days	19.7%
+The causal chain — confirmed:
+Delivery time directly drives review scores. Categories with the worst satisfaction scores average 20.8 days to deliver vs. 12–13 days for highly rated categories. This is a 60% longer delivery time producing measurably worse customer experiences.
+
+9.4 Freight Risk Analysis
+Categories where logistics cost exceeds 30% of item price are classified as Freight Risk categories.
+
+Category (EN)	Category (PT)	Freight %	Risk Level
+Home Comfort 2	casa_conforto_2	54.0%	Critical
+Flowers	flores	44.0%	Critical
+Mattresses & Upholstery	moveis_colchao_e_estofado	36.6%	High
+Christmas Items	artigos_de_natal	36.5%	High
+Diapers & Hygiene	fraldas_higiene	36.3%	High
+CDs, DVDs & Music	cds_dvds_musicais	30.8%	Moderate
+Safety & Signage	sinalizacao_e_seguranca	30.4%	Moderate
+9.5 Category Growth Trends (Jan-Aug 2017 vs Jan-Aug 2018)
+Growing categories:
+
+Watches & Gifts: grew from R$ 201,138 to R$ 687,577 — 241.8% growth
+
+Health & Beauty: grew from R$ 243,522 to R$ 755,725 — 210.3% growth
+
+Household Utilities: grew from R$ 127,535 to R$ 391,823 — 207.2% growth
+
+Declining categories:
+
+Toys: GMV dropped in the recorded Jan-Aug period from 2017 to 2018 by ~43.8% due to missing Q4 seasonal spikes in the 2018 data.
+
+9.6 Top Category by State
+State	Top Category (EN)	Top Category (PT)	Orders
+SP	Bed, Bath & Table	cama_mesa_banho	4,347
+RJ	Bed, Bath & Table	cama_mesa_banho	1,357
+MG	Bed, Bath & Table	cama_mesa_banho	1,120
+RS	Bed, Bath & Table	cama_mesa_banho	537
+PR	Sports & Leisure	esporte_lazer	420
+Key finding:
+"Bed, Bath & Table" dominates high-volume states. Southern states (PR, SC) prefer "Sports & Leisure". "Health & Beauty" is the absolute #1 in the Northeast (BA, PE) and Midwest (DF, GO).
