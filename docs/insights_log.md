@@ -434,10 +434,11 @@ revenue growth.
 
 
 
-Section 9 — Product Performance Analysis
+## Section 9 — Product Performance Analysis
+
 Analysis covers delivered orders only. Categories with fewer than 50 orders excluded from freight and satisfaction rankings (statistical significance threshold). Portuguese category names shown with English translations.
 
-9.1 Revenue by Category — Top 10
+### 9.1 Revenue by Category — Top 10
 Rank	Category (EN)	Category (PT)	GMV (R$)	% of GMV	Freight %	Avg Review
 1	Health & Beauty	beleza_saude	R$ 1,233,132	9.33%	14.5%	4.19
 2	Watches & Gifts	relogios_presentes	R$ 1,165,899	8.82%	8.4%	4.07
@@ -452,7 +453,7 @@ Rank	Category (EN)	Category (PT)	GMV (R$)	% of GMV	Freight %	Avg Review
 Key finding — revenue concentration:
 The top 5 categories generate ~39.8% of total platform GMV. Health & Beauty alone accounts for nearly 1 in every 10 reals spent on Olist. This concentration is both a strength (predictable revenue) and a risk (one bad season in Health & Beauty materially hurts the whole platform).
 
-9.2 Category Performance Quadrant
+### 9.2 Category Performance Quadrant
 Each category classified against platform averages for order volume and average order value.
 
 Star categories — high volume AND high value
@@ -463,7 +464,7 @@ Watches & Gifts	relogios_presentes	High AOV + strong order volume + low freight
 Cool Stuff	cool_stuff	Above average on both dimensions
 These are Olist's crown jewels. Seller recruitment, promotional spend, and category investment should prioritize these two above all others.
 
-Hidden gem categories — low volume but high value
+### Hidden gem categories — low volume but high value
 (Underinvested — high growth potential)
 
 Top 5 most strategically interesting:
@@ -486,7 +487,7 @@ Workhorses drive traffic and order volume but generate lower revenue per transac
 Underperformers — low volume AND low value
 37 categories fall into this quadrant.
 
-9.3 Customer Satisfaction by Category
+###9.3 Customer Satisfaction by Category
 Minimum 100 orders required for inclusion.
 
 Best reviewed categories:
@@ -504,7 +505,7 @@ Rank	Category (EN)	Category (PT)	Avg Score	Avg Delivery Days	Freight %
 The causal chain — confirmed:
 Delivery time directly drives review scores. Categories with the worst satisfaction scores average 20.8 days to deliver vs. 12–13 days for highly rated categories. This is a 60% longer delivery time producing measurably worse customer experiences.
 
-9.4 Freight Risk Analysis
+### 9.4 Freight Risk Analysis
 Categories where logistics cost exceeds 30% of item price are classified as Freight Risk categories.
 
 Category (EN)	Category (PT)	Freight %	Risk Level
@@ -515,7 +516,8 @@ Christmas Items	artigos_de_natal	36.5%	High
 Diapers & Hygiene	fraldas_higiene	36.3%	High
 CDs, DVDs & Music	cds_dvds_musicais	30.8%	Moderate
 Safety & Signage	sinalizacao_e_seguranca	30.4%	Moderate
-9.5 Category Growth Trends (Jan-Aug 2017 vs Jan-Aug 2018)
+
+### 9.5 Category Growth Trends (Jan-Aug 2017 vs Jan-Aug 2018)
 Growing categories:
 
 Watches & Gifts: grew from R$ 201,138 to R$ 687,577 — 241.8% growth
@@ -528,7 +530,7 @@ Declining categories:
 
 Toys: GMV dropped in the recorded Jan-Aug period from 2017 to 2018 by ~43.8% due to missing Q4 seasonal spikes in the 2018 data.
 
-9.6 Top Category by State
+### 9.6 Top Category by State
 State	Top Category (EN)	Top Category (PT)	Orders
 SP	Bed, Bath & Table	cama_mesa_banho	4,347
 RJ	Bed, Bath & Table	cama_mesa_banho	1,357
@@ -537,3 +539,52 @@ RS	Bed, Bath & Table	cama_mesa_banho	537
 PR	Sports & Leisure	esporte_lazer	420
 Key finding:
 "Bed, Bath & Table" dominates high-volume states. Southern states (PR, SC) prefer "Sports & Leisure". "Health & Beauty" is the absolute #1 in the Northeast (BA, PE) and Midwest (DF, GO).
+
+
+
+
+
+## Section 10 — Seller Performance Analysis
+
+### Seller Tier Distribution
+Tier	Sellers	% of Sellers	GMV (R$)	% of Revenue	Avg Review	Late %
+Platinum	225	28.1%	R$ 2,498,180.04	23.1%	4.42	3.7%
+Gold	271	33.9%	R$ 4,352,020.03	40.3%	4.22	7.0%
+Silver	271	33.9%	R$ 3,431,934.59	31.8%	3.90	10.0%
+Bronze	33	4.1%	R$ 519,182.85	4.8%	3.21	17.5%
+
+### Geographic Concentration
+Top seller state: SP (São Paulo) (59.56% of sellers)
+
+Seller vs customer state match: Massive Mismatch. While nearly 60% of sellers are located in São Paulo, only 42% of customers are based there. This geographic imbalance forces roughly 18% of the platform's total volume to be shipped out-of-state, increasing freight costs, delaying deliveries, and ultimately hurting customer satisfaction in the Northern and Northeastern regions.
+
+### Delivery Performance by Distance
+Delivery Type	Avg Days	Late %	Avg Freight %	Avg Review
+Same state	7.9	5.9%	13.0%	4.20
+Different state	15.0	8.8%	18.3%	4.02
+Seller Concentration (Pareto)
+
+Top 1% of sellers generate: 25.9% of revenue
+
+Top 20% of sellers generate: 15.2% of revenue
+
+### At-Risk Sellers
+Total sellers on danger list: 32 sellers (Consistent underperformers with 30+ orders)
+
+GMV at risk from Bronze sellers: R$ 519,182.85 (4.8% of total)
+
+Power BI Notes — Seller Page
+Visual	Type	Fields
+Seller Tier Distribution	Donut Chart	seller_tier (Legend), seller_id (Count)
+Supply vs. Demand Match	2x Filled Maps	Map 1: seller_state, Map 2: customer_state
+The Logistics Penalty	Clustered Column	X-Axis: delivery_type, Y-Axis: avg_delivery_days & avg_freight_cost
+Seller Pareto Curve	Line & Stacked Column	X-Axis: seller_id, Column: total_gmv, Line: cumulative_gmv_pct
+Danger List / At-Risk Sellers	Table	seller_id, avg_review_score, late_delivery_pct (Conditional format Red for < 3.5 score)
+
+
+💡 Summary
+The Logistics Friction Hypothesis is Proven:
+The data clearly shows that "Geography is Fate" on this platform. When a seller and customer are in the same state, the system works beautifully (7.9 days delivery, 4.20 satisfaction). When they are in different states—which accounts for a massive 64% of all orders—delivery times nearly double (15.0 days), freight eats up 18.3% of the product's price, and satisfaction drops.
+
+The Bronze Tier Liability:
+Though Bronze sellers make up only 4.1% of the seller base, they are processing over half a million Reais in GMV. With an average review score of 3.21 and a 17.5% late delivery rate, these 33 sellers act as a "leaky bucket," permanently churning customers who have a terrible first experience. Transitioning volume away from Bronze sellers to Platinum/Gold sellers is the fastest way to improve platform-wide retention without spending a single dollar on marketing.
