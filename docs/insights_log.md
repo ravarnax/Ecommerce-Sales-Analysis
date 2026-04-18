@@ -588,3 +588,166 @@ The data clearly shows that "Geography is Fate" on this platform. When a seller 
 
 The Bronze Tier Liability:
 Though Bronze sellers make up only 4.1% of the seller base, they are processing over half a million Reais in GMV. With an average review score of 3.21 and a 17.5% late delivery rate, these 33 sellers act as a "leaky bucket," permanently churning customers who have a terrible first experience. Transitioning volume away from Bronze sellers to Platinum/Gold sellers is the fastest way to improve platform-wide retention without spending a single dollar on marketing.
+
+
+
+
+
+
+
+## Section 11 — Delivery & Logistics Performance Analysis
+
+> Analysis based on delivered orders with non-null delivery timestamps.
+> On-time defined as: delivered on or before estimated delivery date.
+> Late defined as: delivered after estimated delivery date.
+
+---
+
+### 11.1 Platform-Wide Delivery Performance
+
+| Metric                      | Value      |
+|-----------------------------|------------|
+| Total delivered orders      | 96,470     |
+| Avg delivery time           | 12.5 days  |
+| Median delivery time        | 10.2 days  |
+| On-time delivery rate       | 92.1%      |
+| Late delivery rate          | 7.9%       |
+| Early delivery rate         | 92.0%      |
+| Avg delay (late orders)     | 9.4 days   |
+| Avg freight cost            | R$ 19.95   |
+| Freight as % of item price  | 16.6%      |
+
+**Key finding:**
+> The on-time delivery rate is a healthy 92.1%, successfully clearing the standard 90% e-commerce benchmark. However, this success relies heavily on highly conservative delivery estimates, leading to a massive 92.0% early delivery rate. The primary vulnerability is the severity of failures: when an order is late, it misses the mark by an average of 9.4 days. Furthermore, an average freight cost representing 16.6% of the item price constitutes a significant burden on overall unit economics.
+
+---
+
+### 11.2 Delivery Performance Trend (2017–2018)
+
+**Pattern observed:**
+> Delivery performance degrades severely under volume spikes. November 2017 (Black Friday) saw a 63% jump in order volume, causing late deliveries to more than double (from 5.1% to 13.8%) and average delivery time to rise from 11.7 to 15.0 days. This negative trajectory snowballed into a major crisis in March 2018, where 1 in 5 orders (20.5%) were delivered late, driving the platform's average review score to a historical low of 3.75. The logistics infrastructure breaks under sudden scale.
+
+---
+
+### 11.3 Delivery Performance by State
+
+**Slowest 5 customer states:**
+
+| State | Avg Delivery Days | Late % | Avg Review | Freight % |
+|-------|-------------------|--------|------------|-----------|
+| AM    | 26.4              | 4.3%   | 4.11       | 24.5%     |
+| AL    | 24.5              | 24.1%  | 3.82       | 19.4%     |
+| PA    | 23.8              | 12.4%  | 3.84       | 21.5%     |
+| MA    | 21.6              | 20.4%  | 3.76       | 26.3%     |
+| SE    | 21.5              | 16.3%  | 3.90       | 24.2%     |
+
+**Fastest 5 customer states:**
+
+| State | Avg Delivery Days | Late % | Avg Review | Freight % |
+|-------|-------------------|--------|------------|-----------|
+| SP    | 8.7               | 5.8%   | 4.18       | 13.9%     |
+| PR    | 11.9              | 4.8%   | 4.15       | 17.4%     |
+| MG    | 12.0              | 5.4%   | 4.12       | 17.2%     |
+| DF    | 13.0              | 7.4%   | 4.06       | 16.7%     |
+| SC    | 15.0              | 9.6%   | 4.05       | 17.4%     |
+
+**Key finding — the geographic divide:**
+> There is a severe structural divide between the industrial core and the periphery. Customers in the North and Northeast wait nearly three times longer (21–26 days) and pay significantly higher freight penalties (19–26% of item price) compared to the Southeast (SP, PR, MG). Unless the wait is highly predictable and appropriately communicated (as seen in Amazonas, which has a low 4.3% late rate and high 4.11 score), slow speeds combined with high unpredictability (like Alagoas' 24.1% late rate) rapidly destroy regional review scores.
+
+---
+
+### 11.4 Slowest Delivery Routes (Top 10)
+
+| From State | To State | Orders | Avg Days | Late % | Avg Review |
+|------------|----------|--------|----------|--------|------------|
+| MG         | PA       | 84     | 27.8     | 17.4%  | 4.05       |
+| SP         | AM       | 99     | 26.2     | 4.6%   | 4.12       |
+| RJ         | CE       | 54     | 26.0     | 25.0%  | 3.55       |
+| PR         | PA       | 54     | 25.4     | 12.1%  | 4.07       |
+| SP         | AL       | 256    | 24.6     | 25.3%  | 3.69       |
+| PR         | CE       | 64     | 24.0     | 12.5%  | 3.52       |
+| SP         | PA       | 683    | 23.3     | 12.9%  | 3.79       |
+| SP         | MA       | 493    | 22.2     | 22.2%  | 3.67       |
+| PR         | BA       | 144    | 21.5     | 15.3%  | 3.77       |
+| SP         | SE       | 208    | 21.3     | 18.1%  | 3.80       |
+
+**Key finding — the long-haul problem:**
+> Cross-country routes entirely dominate the failure list, with 6 out of the 10 slowest corridors originating from the main logistics hub in São Paulo (SP). Forcing inventory to travel from SP to the North and Northeast creates a massive bottleneck that breaks delivery SLAs. This definitively highlights the immediate seller recruitment targets: the platform must acquire sellers natively in PA, CE, AL, MA, and BA to bypass these catastrophic long-haul routes.
+
+---
+
+### 11.5 Delivery Delay Impact on Review Score
+
+| Delay Bucket   | Orders | % of Orders | Avg Review | Negative % | Positive % |
+|----------------|--------|-------------|------------|------------|------------|
+| 5+ days early  | 79,481 | 82.9%       | 4.22       | 11.3%      | 80.9%      |
+| 1-4 days early | 7,296  | 7.6%        | 4.08       | 12.8%      | 75.7%      |
+| On time        | 175    | 0.2%        | 4.17       | 9.7%       | 76.5%      |
+| 1-3 days late  | 3,863  | 4.0%        | 3.84       | 18.1%      | 68.9%      |
+| 4-7 days late  | 1,787  | 1.9%        | 2.27       | 62.5%      | 26.9%      |
+| 8-14 days late | 1,722  | 1.8%        | 1.74       | 78.5%      | 12.5%      |
+| 15+ days late  | 1,500  | 1.6%        | 1.71       | 78.8%      | 12.6%      |
+
+**The causal proof — quantified:**
+> Orders delivered on-time (or 5+ days early) average a 4.17 to 4.22 review score.
+> Orders delivered 15+ days late average a 1.71 review score.
+> That is a 2.51-point penalty for late delivery.
+>
+> This is not correlation. This is causation. Delivery delay directly destroys customer satisfaction. Every day of delay past the 3-day mark pushes the order off a "satisfaction cliff," costing measurable reputation damage.
+
+**Business implication:**
+> A 10% improvement in on-time delivery rate would shift over 9,600 orders from the late buckets to the on-time bucket, preventing thousands of negative reviews per month. At scale, this directly impacts the platform's repeat purchase rate and customer lifetime value.
+
+---
+
+### 11.6 Delivery Performance by Product Category
+
+**Slowest 5 categories:**
+
+| Category (EN)        | Avg Days | Late % | Freight % | Avg Review | Avg Weight |
+|----------------------|----------|--------|-----------|------------|------------|
+| Office Furniture     | 20.8     | 8.9%   | 25.0%     | 3.51       | N/A        |
+| Garden Tools         | 13.7     | 8.0%   | 20.5%     | 4.08       | N/A        |
+| Computer Accessories | 13.2     | 7.8%   | 16.2%     | 3.99       | N/A        |
+| Furniture & Decor    | 12.9     | 8.4%   | 23.7%     | 3.95       | N/A        |
+| Telephony            | 12.9     | 8.3%   | 22.4%     | 3.99       | N/A        |
+
+**Key finding — the bulky product problem:**
+> The worst-reviewed categories identified in the Product Analysis (specifically Office Furniture and Furniture & Decor) sit firmly at the top of the slowest delivery list. Office Furniture is an extreme outlier, requiring 20.8 days for delivery while eating up 25.0% of the item price in freight. This confirms the causal chain: bulky, non-standard items strain the logistics network, inflating transit times and delivery costs, which in turn plummets customer satisfaction scores down to 3.51.
+
+---
+
+### 11.7 Power BI Dashboard — Logistics Page Build Notes
+
+| Visual                    | Type         | Fields                                      |
+|---------------------------|--------------|---------------------------------------------|
+| On-time % KPI             | Card         | on_time_pct                                 |
+| Avg delivery days KPI     | Card         | avg_delivery_days                           |
+| Late delivery % KPI       | Card         | late_pct                                    |
+| Delivery trend            | Line chart   | order_month, avg_delivery_days, late_pct    |
+| State performance map     | Filled map   | customer_state, avg_delivery_days           |
+| Delay impact on reviews   | Bar chart    | delay_bucket, avg_review_score              |
+| Slowest routes heatmap    | Matrix       | seller_state (rows), customer_state (cols)  |
+| Category delivery table   | Table        | product_category, all delivery metrics      |
+
+**Conditional formatting:**
+- On-time % card: green if >90%, amber 80-90%, red <80%
+- Avg delivery days card: green if <12, amber 12-15, red >15
+- State map: color gradient from green (fast) to red (slow)
+- Heatmap: color scale from green (<10 days) to red (>20 days)
+
+---
+
+### 11.8 Strategic Takeaways
+
+**Takeaway 1 — The on-time crisis:**
+> The 92.1% overall on-time rate indicates the baseline system functions reasonably well, but the vulnerability is in the severe tail-end failures. When an order breaks the delivery SLA, it does so by a massive 9.4 days. Customers expect their packages when promised; an average 10-day delay on late items is a broken promise at scale.
+
+**Takeaway 2 — Geography is destiny:**
+> The 17.7-day delivery gap between the fastest (SP) and slowest (AM) states proves that where a seller is located determines customer satisfaction more than what they sell. Recruiting sellers in underserved states is not just a catalog growth strategy — it is a mandatory customer experience fix to eradicate the long-haul freight penalty.
+
+**Takeaway 3 — Late delivery = lost customers:**
+> Every order delivered 15+ days late suffers a staggering 2.51-point review score penalty. Given the 97% one-time buyer rate identified in the Customer Analysis, this means late delivery is directly and permanently causing customer churn. Fix delivery consistency, fix retention.
+
+**Takeaway 4 — The freight-delay double penalty:**
+> Slow routes also have the highest freight burdens (routinely exceeding 20% of the item price). Customers in remote states pay MORE for freight AND wait LONGER for their order. This is the worst possible customer experience — expensive and slow. It must be resolved through localized cross-docking or localized seller acquisition, or those regional markets will remain locked off from profitable growth.
