@@ -211,15 +211,15 @@ Ecommerce-Sales-Analysis/
 *Monthly GMV trends, MoM growth rates, and seasonality patterns*
 
 ### Customer Insights
-![Customer Dashboard](powerbi/Customer%20Insights%20Dashboard%20(Olist%20Dataset).png)
+![Customer Dashboard](powerbi/screenshots/Customer%20Insights%20Dashboard%20(Olist%20Dataset).png)
 *RFM segmentation, retention analysis, and geographic distribution*
 
 ### Product Performance
-![Product Dashboard](powerbi/Product%20Performance%20Dashboard%20(Olist%20Dataset).png)
+![Product Dashboard](powerbi/screenshots/Product%20Performance%20Dashboard%20(Olist%20Dataset).png)
 *Category quadrant matrix, satisfaction rankings, and freight risk analysis*
 
 ### Delivery & Logistics
-![Logistics Dashboard](powerbi/Delivery%20and%20Logistics%20Dashboard%20(Olist%20Dataset).png)
+![Logistics Dashboard](powerbi/screenshots/Delivery%20and%20Logistics%20Dashboard%20(Olist%20Dataset).png)
 *On-time performance, state-level analysis, and delay impact on reviews*
 
 ---
