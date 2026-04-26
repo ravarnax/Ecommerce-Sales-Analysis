@@ -203,11 +203,11 @@ Ecommerce-Sales-Analysis/
 ## 📸 Dashboard Preview
 
 ### Executive Overview
-![Executive Dashboard](powerbi/Executive%20Dashboard%20(Olist%20Dataset).png)
+![Executive Dashboard](powerbi/screenshots/Executive%20Dashboard%20(Olist%20Dataset).png)
 *High-level KPIs and trends — designed for C-suite consumption*
 
 ### Revenue & Growth Analysis
-![Revenue Dashboard](powerbi/Revenue%20and%20Growth%20Dashboard%20(Olist%20Dataset).png)
+![Revenue Dashboard](powerbi/screenshots/Revenue%20and%20Growth%20Dashboard%20(Olist%20Dataset).png)
 *Monthly GMV trends, MoM growth rates, and seasonality patterns*
 
 ### Customer Insights
