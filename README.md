@@ -43,31 +43,66 @@ This project simulates a **real-world analytics engagement** for Olist, a Brazil
 
 ## 📁 Repository Structure
 
-olist-analytics-portfolio/
+```
+Ecommerce-Sales-Analysis/
 │
-├── sql/
-│   ├── 01_data_validation.sql          # Data quality audit (7 validation checks)
-│   ├── 02_master_view.sql              # Analytical foundation (8-table join)
-│   ├── 03_revenue_analysis.sql         # GMV trends, growth rates, seasonality
-│   ├── 04_customer_analysis.sql        # RFM segmentation, LTV, retention
-│   ├── 05_product_analysis.sql         # Category performance, freight analysis
-│   ├── 06_seller_analysis.sql          # Seller tiers, Pareto distribution
-│   └── 07_delivery_logistics_analysis.sql  # On-time %, delay impact analysis
+├── data/                                        # Raw source datasets (9 CSV files)
+│   ├── olist_orders_dataset.csv                 # Core orders fact table (99,441 rows)
+│   ├── olist_customers_dataset.csv              # Customer dimension (99,441 rows)
+│   ├── olist_order_items_dataset.csv            # Order line items (112,650 rows)
+│   ├── olist_order_payments_dataset.csv         # Payment transactions (103,886 rows)
+│   ├── olist_order_reviews_dataset.csv          # Customer reviews (104,164 rows)
+│   ├── olist_products_dataset.csv               # Product catalogue (32,951 rows)
+│   ├── olist_sellers_dataset.csv                # Seller dimension (3,095 rows)
+│   ├── olist_geolocation_dataset.csv            # ZIP code coordinates (1,000,163 rows)
+│   ├── product_category_name_translation.csv    # PT → EN category lookup (71 rows)
+│   └── schema.sql                               # PostgreSQL table definitions
 │
-├── powerbi/
-│   ├── olist_analytics_dashboard.pbix  # Interactive 5-page dashboard
-│   └── screenshots/                    # Dashboard page screenshots
+├── sql/                                         # All analytical SQL queries
+│   ├── 01_data_validation.sql                   # Data quality audit (nulls, dupes, referential integrity)
+│   ├── 02_correction.sql                        # Data cleaning corrections
+│   ├── 02_master_view.sql                       # master_orders_view — 8-table analytical join
+│   ├── 03_revenue_analysis.sql                  # GMV trends, MoM growth, seasonality, freight ratios
+│   ├── 04_customer_analysis.sql                 # RFM segmentation, retention, LTV, geographic analysis
+│   ├── 05_product_analysis.sql                  # Category performance, quadrant matrix, freight risk
+│   ├── 06_seller_analysis.sql                   # Seller tiers, Pareto distribution, quality metrics
+│   ├── 07_delivery_logistics_analysis.sql       # On-time %, delay impact on reviews, state-level SLA
+│   └── exploratory_queries.sql                  # Ad-hoc exploration queries
 │
-├── excel/
-│   └── *.csv                           # Exported datasets for Power BI
+├── powerbi/                                     # Power BI dashboard assets
+│   ├── ecommerce_dashboard.pbit                 # Power BI template (5-page interactive dashboard)
+│   ├── Executive Dashboard (Olist Dataset).png
+│   ├── Revenue and Growth Dashboard (Olist Dataset).png
+│   ├── Customer Insights Dashboard (Olist Dataset).png
+│   ├── Product Performance Dashboard (Olist Dataset).png
+│   └── Delivery and Logistics Dashboard (Olist Dataset).png
 │
-├── docs/
-│   ├── executive_summary.md            # 1-page business summary
-│   ├── insights_log.md                 # Detailed findings documentation
-│   ├── data_dictionary.md              # Data quality notes
-│   └── business_questions.md           # Analysis scope
+├── excel/                                       # Exported datasets for Power BI data model
+│   ├── delivered_orders.csv                     # All delivered orders with enriched fields
+│   ├── rfm_customer_segments.csv                # RFM scoring and segment labels
+│   ├── seller_tiers.csv                         # Seller tier classifications
+│   ├── category_quadrant.csv                    # Product category quadrant matrix
+│   ├── monthly_summary.csv                      # Monthly GMV and order volume summary
+│   └── delivery_delay_impact.csv                # Delay buckets vs. average review scores
 │
-└── README.md                           # You are here
+├── docs/                                        # Project documentation
+│   ├── executive_summary.md                     # C-suite 1-page findings summary
+│   ├── insights_log.md                          # Full domain-by-domain analytical findings
+│   ├── project_walkthrough.md                   # End-to-end methodology walkthrough
+│   ├── data_dictionary.md                       # Legacy data notes (see 02_Data_Understanding/)
+│   └── business_questions.md                    # Original analysis scope definition
+│
+├── Insights/                                    # Output exports and visual results
+│   ├── insights.md                              # Consolidated insight summaries
+│   ├── 05_product_analysis.result.csv           # Product analysis query results
+│   ├── 06_seller_analysis.csv                   # Seller analysis query results
+│   ├── 07_delivery_logistics_analysis.csv       # Logistics analysis query results
+│   ├── image.png                                # Supporting chart exports
+│   └── image-1.png
+│
+├── .gitignore                                   # Git ignore rules
+└── README.md                                    # You are here
+```
 
 
 
