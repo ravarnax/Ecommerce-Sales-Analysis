@@ -256,11 +256,11 @@ Ecommerce-Sales-Analysis/
 
 ## 📬 Contact & Links
 
-**Author:** Shivam Kothiyal ([@shivamkothiyal17](https://github.com/shivamkothiyal17))
+**Author:** Shivam Kothiyal 
 
-**LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/shivam-kothiyal-161b531b8/)  
+**LinkedIn:** https://www.linkedin.com/in/shivam-kothiyal-161b531b8/  
 
-**Portfolio:** [Portfolio Site](https://github.com/shivamkothiyal17)
+**Portfolio:** https://github.com/shivamkothiyal17
 
 **Email:** shivamkothiyal170@gmail.com
 
