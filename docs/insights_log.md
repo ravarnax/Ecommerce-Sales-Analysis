@@ -1,6 +1,9 @@
 # Insights Log — Revenue Analysis
+
 Olist E-Commerce | Brazilian Market | 2016–2018
+
 Tool: PostgreSQL + Power BI
+
 Dataset: ~100k delivered orders | Source: Kaggle (Olist Public Dataset)
 
 ---
