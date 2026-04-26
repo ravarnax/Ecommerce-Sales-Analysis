@@ -1,0 +1,570 @@
+-- Query 1 — Revenue by Product Category
+
+"product_category"	"total_orders"	"unique_customers"	"total_gmv"	"avg_order_value"	"total_freight"	"freight_pct_of_gmv"	"avg_review_score"	"pct_of_total_gmv"
+"beleza_saude"	8647	8498	1233131.72	130.28	178957.81	14.5	4.19	9.33
+"relogios_presentes"	5493	5419	1165898.98	199.06	98118.00	8.4	4.07	8.82
+"cama_mesa_banho"	9272	9008	1023434.76	93.44	201774.50	19.7	3.92	7.74
+"esporte_lazer"	7529	7340	954673.55	113.25	163389.36	17.1	4.17	7.22
+"informatica_acessorios"	6529	6404	888613.62	116.27	143990.03	16.2	3.99	6.72
+"moveis_decoracao"	6307	6178	711927.69	87.25	168402.23	23.7	3.95	5.39
+"utilidades_domesticas"	5743	5681	615628.69	90.60	142763.56	23.2	4.11	4.66
+"cool_stuff"	3559	3543	610204.10	164.12	81476.79	13.4	4.20	4.62
+"automotivo"	3809	3768	578849.35	139.85	90470.57	15.6	4.11	4.38
+"brinquedos"	3803	3762	471097.49	116.93	75758.95	16.1	4.21	3.56
+"ferramentas_jardim"	3448	3420	470495.28	110.24	96650.40	20.5	4.08	3.56
+"bebes"	2809	2783	400421.84	134.28	66305.81	16.6	4.08	3.03
+"perfumaria"	3086	3050	390144.65	116.81	53026.98	13.6	4.22	2.95
+"telefonia"	4093	4047	309860.23	69.95	69342.39	22.4	3.99	2.34
+"moveis_escritorio"	1254	1245	268154.31	160.76	67057.05	25.0	3.51	2.03
+"papelaria"	2264	2250	223788.69	90.75	45786.36	20.5	4.25	1.69
+"pcs"	177	176	218684.14	1098.92	9665.62	4.4	4.22	1.65
+"pet_shop"	1688	1667	211695.64	110.03	38918.56	18.4	4.22	1.60
+"instrumentos_musicais"	611	607	184315.74	283.13	17871.38	9.7	4.22	1.39
+"eletroportateis"	609	606	182754.12	277.74	15354.35	8.4	4.22	1.38
+"others"	1392	1386	170726.63	111.08	26969.06	15.8	3.94	1.29
+"eletronicos"	2517	2507	155043.93	56.81	45679.16	29.5	4.07	1.17
+"fashion_bolsas_e_acessorios"	1820	1757	149329.39	75.23	30558.90	20.5	4.19	1.13
+"consoles_games"	1018	1014	148003.37	135.91	19094.36	12.9	4.14	1.12
+"construcao_ferramentas_construcao"	736	732	142108.49	155.14	20273.52	14.3	4.09	1.07
+"malas_acessorios"	1019	1013	138701.63	128.79	30076.49	21.7	4.35	1.05
+"eletrodomesticos_2"	227	222	107953.95	467.33	10254.57	9.5	4.16	0.82
+"casa_construcao"	483	483	81407.57	136.59	13614.80	16.7	3.96	0.62
+"eletrodomesticos"	747	688	78832.48	104.55	14469.30	18.4	4.23	0.60
+"agro_industria_e_comercio"	177	176	70566.10	342.55	5637.20	8.0	4.09	0.53
+"moveis_sala"	414	407	67350.70	136.06	17694.37	26.3	3.93	0.51
+"casa_conforto"	392	391	58008.45	135.22	8429.77	14.5	3.85	0.44
+"telefonia_fixa"	212	212	55315.21	216.92	4501.33	8.1	3.76	0.42
+"climatizacao"	246	244	53323.56	184.51	6530.99	12.2	4.05	0.40
+"audio"	348	347	50570.60	139.70	5684.72	11.2	3.84	0.38
+"portateis_casa_forno_e_cafe"	72	72	46589.56	638.21	2656.34	5.7	4.44	0.35
+"moveis_cozinha_area_de_servico_jantar_e_jardim"	241	241	45531.98	166.18	11540.99	25.3	4.03	0.34
+"livros_interesse_geral"	495	489	45256.25	84.43	8871.32	19.6	4.51	0.34
+"construcao_ferramentas_iluminacao"	242	242	39957.00	132.75	7490.14	18.7	4.08	0.30
+"construcao_ferramentas_seguranca"	159	158	38773.22	211.88	3730.80	9.6	3.97	0.29
+"industria_comercio_e_negocios"	231	229	38169.81	144.58	7555.29	19.8	4.12	0.29
+"alimentos"	441	436	28731.15	57.58	7063.53	24.6	4.26	0.22
+"market_place"	274	273	27795.77	91.13	5318.61	19.1	4.07	0.21
+"construcao_ferramentas_jardim"	190	187	25096.28	108.17	5187.66	20.7	4.12	0.19
+"artes"	195	195	23657.30	120.09	3828.23	16.2	4.08	0.18
+"fashion_calcados"	235	234	23001.46	89.50	4813.37	20.9	4.28	0.17
+"bebidas"	287	282	21529.84	59.64	5441.27	25.3	4.12	0.16
+"sinalizacao_e_seguranca"	138	137	21315.05	108.20	6477.54	30.4	4.09	0.16
+"moveis_quarto"	90	86	19051.80	184.97	4327.42	22.7	4.25	0.14
+"livros_tecnicos"	256	255	18702.23	71.11	4198.84	22.5	4.39	0.14
+"construcao_ferramentas_ferramentas"	97	97	15903.95	154.41	2030.22	12.8	4.44	0.12
+"alimentos_bebidas"	221	219	14942.88	55.55	4394.89	29.4	4.36	0.11
+"fashion_roupa_masculina"	106	104	10452.33	83.62	2062.62	19.7	3.76	0.08
+"fashion_underwear_e_moda_praia"	117	117	9305.95	73.28	1854.07	19.9	4.05	0.07
+"artigos_de_natal"	125	125	8737.84	58.25	3190.91	36.5	4.07	0.07
+"tablets_impressao_imagem"	79	79	7528.41	90.70	1226.20	16.3	4.12	0.06
+"cine_foto"	63	63	6674.47	95.35	1227.71	18.4	4.29	0.05
+"musica"	38	38	6034.35	158.80	690.51	11.4	4.21	0.05
+"dvds_blu_ray"	56	55	4542.59	74.47	1227.25	27.0	4.18	0.03
+"artigos_de_festas"	38	38	4465.19	106.31	820.19	18.4	3.83	0.03
+"livros_importados"	50	49	4418.86	77.52	732.08	16.6	4.51	0.03
+"moveis_colchao_e_estofado"	37	37	4323.38	116.85	1581.37	36.6	3.89	0.03
+"portateis_cozinha_e_preparadores_de_alimentos"	13	13	3933.63	280.97	294.42	7.5	3.43	0.03
+"fashion_roupa_feminina"	36	36	2634.94	58.55	583.50	22.1	3.93	0.02
+"fashion_esporte"	26	26	2094.52	72.22	563.03	26.9	4.34	0.02
+"la_cuisine"	13	13	2054.99	146.79	333.55	16.2	4.00	0.02
+"artes_e_artesanato"	23	21	1814.01	75.58	370.13	20.4	4.13	0.01
+"fraldas_higiene"	25	24	1500.79	40.56	545.40	36.3	3.38	0.01
+"pc_gamer"	7	7	1306.95	163.37	123.15	9.4	3.63	0.01
+"flores"	29	29	1110.04	33.64	488.87	44.0	4.42	0.01
+"casa_conforto_2"	24	23	760.27	25.34	410.31	54.0	3.63	0.01
+"cds_dvds_musicais"	12	12	730.00	52.14	224.99	30.8	4.64	0.01
+"fashion_roupa_infanto_juvenil"	7	7	519.95	74.28	78.72	15.1	5.00	0.00
+"seguros_e_servicos"	2	2	283.29	141.65	41.22	14.6	2.50	0.00
+
+
+
+
+
+
+
+
+-- 02 Category Performance Matrix
+"product_category"	"total_orders"	"total_gmv"	"avg_order_value"	"avg_review_score"	"freight_pct"	"category_quadrant"
+"beleza_saude"	8647	1233131.72	130.28	4.19	14.5	"Workhorse — high volume, low value"
+"relogios_presentes"	5493	1165898.98	199.06	4.07	8.4	"Star — high volume, high value"
+"cama_mesa_banho"	9272	1023434.76	93.44	3.92	19.7	"Workhorse — high volume, low value"
+"esporte_lazer"	7529	954673.55	113.25	4.17	17.1	"Workhorse — high volume, low value"
+"informatica_acessorios"	6529	888613.62	116.27	3.99	16.2	"Workhorse — high volume, low value"
+"moveis_decoracao"	6307	711927.69	87.25	3.95	23.7	"Workhorse — high volume, low value"
+"utilidades_domesticas"	5743	615628.69	90.60	4.11	23.2	"Workhorse — high volume, low value"
+"cool_stuff"	3559	610204.10	164.12	4.20	13.4	"Star — high volume, high value"
+"automotivo"	3809	578849.35	139.85	4.11	15.6	"Workhorse — high volume, low value"
+"brinquedos"	3803	471097.49	116.93	4.21	16.1	"Workhorse — high volume, low value"
+"ferramentas_jardim"	3448	470495.28	110.24	4.08	20.5	"Workhorse — high volume, low value"
+"bebes"	2809	400421.84	134.28	4.08	16.6	"Workhorse — high volume, low value"
+"perfumaria"	3086	390144.65	116.81	4.22	13.6	"Workhorse — high volume, low value"
+"telefonia"	4093	309860.23	69.95	3.99	22.4	"Workhorse — high volume, low value"
+"moveis_escritorio"	1254	268154.31	160.76	3.51	25.0	"Hidden gem — low volume, high value"
+"papelaria"	2264	223788.69	90.75	4.25	20.5	"Workhorse — high volume, low value"
+"pcs"	177	218684.14	1098.92	4.22	4.4	"Hidden gem — low volume, high value"
+"pet_shop"	1688	211695.64	110.03	4.22	18.4	"Workhorse — high volume, low value"
+"instrumentos_musicais"	611	184315.74	283.13	4.22	9.7	"Hidden gem — low volume, high value"
+"eletroportateis"	609	182754.12	277.74	4.22	8.4	"Hidden gem — low volume, high value"
+"others"	1392	170726.63	111.08	3.94	15.8	"Workhorse — high volume, low value"
+"eletronicos"	2517	155043.93	56.81	4.07	29.5	"Workhorse — high volume, low value"
+"fashion_bolsas_e_acessorios"	1820	149329.39	75.23	4.19	20.5	"Workhorse — high volume, low value"
+"consoles_games"	1018	148003.37	135.91	4.14	12.9	"Underperformer — low volume, low value"
+"construcao_ferramentas_construcao"	736	142108.49	155.14	4.09	14.3	"Hidden gem — low volume, high value"
+"malas_acessorios"	1019	138701.63	128.79	4.35	21.7	"Underperformer — low volume, low value"
+"eletrodomesticos_2"	227	107953.95	467.33	4.16	9.5	"Hidden gem — low volume, high value"
+"casa_construcao"	483	81407.57	136.59	3.96	16.7	"Underperformer — low volume, low value"
+"eletrodomesticos"	747	78832.48	104.55	4.23	18.4	"Underperformer — low volume, low value"
+"agro_industria_e_comercio"	177	70566.10	342.55	4.09	8.0	"Hidden gem — low volume, high value"
+"moveis_sala"	414	67350.70	136.06	3.93	26.3	"Underperformer — low volume, low value"
+"casa_conforto"	392	58008.45	135.22	3.85	14.5	"Underperformer — low volume, low value"
+"telefonia_fixa"	212	55315.21	216.92	3.76	8.1	"Hidden gem — low volume, high value"
+"climatizacao"	246	53323.56	184.51	4.05	12.2	"Hidden gem — low volume, high value"
+"audio"	348	50570.60	139.70	3.84	11.2	"Underperformer — low volume, low value"
+"portateis_casa_forno_e_cafe"	72	46589.56	638.21	4.44	5.7	"Hidden gem — low volume, high value"
+"moveis_cozinha_area_de_servico_jantar_e_jardim"	241	45531.98	166.18	4.03	25.3	"Hidden gem — low volume, high value"
+"livros_interesse_geral"	495	45256.25	84.43	4.51	19.6	"Underperformer — low volume, low value"
+"construcao_ferramentas_iluminacao"	242	39957.00	132.75	4.08	18.7	"Underperformer — low volume, low value"
+"construcao_ferramentas_seguranca"	159	38773.22	211.88	3.97	9.6	"Hidden gem — low volume, high value"
+"industria_comercio_e_negocios"	231	38169.81	144.58	4.12	19.8	"Underperformer — low volume, low value"
+"alimentos"	441	28731.15	57.58	4.26	24.6	"Underperformer — low volume, low value"
+"market_place"	274	27795.77	91.13	4.07	19.1	"Underperformer — low volume, low value"
+"construcao_ferramentas_jardim"	190	25096.28	108.17	4.12	20.7	"Underperformer — low volume, low value"
+"artes"	195	23657.30	120.09	4.08	16.2	"Underperformer — low volume, low value"
+"fashion_calcados"	235	23001.46	89.50	4.28	20.9	"Underperformer — low volume, low value"
+"bebidas"	287	21529.84	59.64	4.12	25.3	"Underperformer — low volume, low value"
+"sinalizacao_e_seguranca"	138	21315.05	108.20	4.09	30.4	"Underperformer — low volume, low value"
+"moveis_quarto"	90	19051.80	184.97	4.25	22.7	"Hidden gem — low volume, high value"
+"livros_tecnicos"	256	18702.23	71.11	4.39	22.5	"Underperformer — low volume, low value"
+"construcao_ferramentas_ferramentas"	97	15903.95	154.41	4.44	12.8	"Hidden gem — low volume, high value"
+"alimentos_bebidas"	221	14942.88	55.55	4.36	29.4	"Underperformer — low volume, low value"
+"fashion_roupa_masculina"	106	10452.33	83.62	3.76	19.7	"Underperformer — low volume, low value"
+"fashion_underwear_e_moda_praia"	117	9305.95	73.28	4.05	19.9	"Underperformer — low volume, low value"
+"artigos_de_natal"	125	8737.84	58.25	4.07	36.5	"Underperformer — low volume, low value"
+"tablets_impressao_imagem"	79	7528.41	90.70	4.12	16.3	"Underperformer — low volume, low value"
+"cine_foto"	63	6674.47	95.35	4.29	18.4	"Underperformer — low volume, low value"
+"musica"	38	6034.35	158.80	4.21	11.4	"Hidden gem — low volume, high value"
+"dvds_blu_ray"	56	4542.59	74.47	4.18	27.0	"Underperformer — low volume, low value"
+"artigos_de_festas"	38	4465.19	106.31	3.83	18.4	"Underperformer — low volume, low value"
+"livros_importados"	50	4418.86	77.52	4.51	16.6	"Underperformer — low volume, low value"
+"moveis_colchao_e_estofado"	37	4323.38	116.85	3.89	36.6	"Underperformer — low volume, low value"
+"portateis_cozinha_e_preparadores_de_alimentos"	13	3933.63	280.97	3.43	7.5	"Hidden gem — low volume, high value"
+"fashion_roupa_feminina"	36	2634.94	58.55	3.93	22.1	"Underperformer — low volume, low value"
+"fashion_esporte"	26	2094.52	72.22	4.34	26.9	"Underperformer — low volume, low value"
+"la_cuisine"	13	2054.99	146.79	4.00	16.2	"Hidden gem — low volume, high value"
+"artes_e_artesanato"	23	1814.01	75.58	4.13	20.4	"Underperformer — low volume, low value"
+"fraldas_higiene"	25	1500.79	40.56	3.38	36.3	"Underperformer — low volume, low value"
+"pc_gamer"	7	1306.95	163.37	3.63	9.4	"Hidden gem — low volume, high value"
+"flores"	29	1110.04	33.64	4.42	44.0	"Underperformer — low volume, low value"
+"casa_conforto_2"	24	760.27	25.34	3.63	54.0	"Underperformer — low volume, low value"
+"cds_dvds_musicais"	12	730.00	52.14	4.64	30.8	"Underperformer — low volume, low value"
+"fashion_roupa_infanto_juvenil"	7	519.95	74.28	5.00	15.1	"Underperformer — low volume, low value"
+"seguros_e_servicos"	2	283.29	141.65	2.50	14.6	"Underperformer — low volume, low value"
+
+
+
+-- 03. Category Satisfaction Ranking
+"product_category"	"total_orders"	"avg_review_score"	"positive_review_pct"	"negative_review_pct"	"satisfaction_rank"
+"livros_interesse_geral"	491	4.51	89.5	6.8	1
+"livros_tecnicos"	255	4.39	85.9	10.3	2
+"alimentos_bebidas"	221	4.36	82.5	6.7	3
+"malas_acessorios"	1015	4.35	84.7	8.7	4
+"fashion_calcados"	231	4.28	81.8	11.1	5
+"alimentos"	437	4.26	83.0	11.7	6
+"papelaria"	2251	4.25	82.1	11.6	7
+"eletrodomesticos"	744	4.23	81.2	10.7	8
+"pcs"	174	4.22	82.7	11.7	9
+"perfumaria"	3076	4.22	80.4	13.0	9
+"pet_shop"	1680	4.22	80.5	12.1	9
+"eletroportateis"	604	4.22	82.1	12.3	9
+"instrumentos_musicais"	605	4.22	81.4	11.9	9
+"brinquedos"	3773	4.21	80.1	12.2	14
+"cool_stuff"	3531	4.20	80.0	11.8	15
+"beleza_saude"	8601	4.19	79.7	12.5	16
+"fashion_bolsas_e_acessorios"	1811	4.19	80.2	11.3	16
+"esporte_lazer"	7485	4.17	79.6	13.0	18
+"eletrodomesticos_2"	226	4.16	80.4	12.2	19
+"consoles_games"	1009	4.14	77.4	12.1	20
+"construcao_ferramentas_jardim"	190	4.12	78.9	15.5	21
+"industria_comercio_e_negocios"	229	4.12	78.2	13.0	21
+"bebidas"	287	4.12	79.2	12.5	21
+"utilidades_domesticas"	5709	4.11	77.2	14.3	24
+"automotivo"	3791	4.11	78.5	13.9	24
+"sinalizacao_e_seguranca"	137	4.09	74.0	11.7	26
+"agro_industria_e_comercio"	177	4.09	80.1	13.6	26
+"construcao_ferramentas_construcao"	731	4.09	76.3	14.1	26
+"bebes"	2787	4.08	76.5	14.9	29
+"artes"	193	4.08	76.4	14.4	29
+"ferramentas_jardim"	3428	4.08	77.0	15.0	29
+"construcao_ferramentas_iluminacao"	239	4.08	75.7	13.7	29
+"eletronicos"	2498	4.07	77.3	14.8	33
+"market_place"	272	4.07	77.2	12.9	33
+"artigos_de_natal"	123	4.07	79.0	13.3	33
+"relogios_presentes"	5452	4.07	76.2	14.8	33
+"fashion_underwear_e_moda_praia"	116	4.05	77.8	15.9	37
+"climatizacao"	242	4.05	76.1	15.5	37
+"moveis_cozinha_area_de_servico_jantar_e_jardim"	239	4.03	75.4	13.6	39
+"informatica_acessorios"	6498	3.99	74.7	17.0	40
+"telefonia"	4069	3.99	74.3	15.5	40
+"construcao_ferramentas_seguranca"	158	3.97	75.3	17.6	42
+"casa_construcao"	481	3.96	74.2	17.4	43
+"moveis_decoracao"	6260	3.95	72.8	18.1	44
+"others"	1382	3.94	74.2	19.5	45
+"moveis_sala"	409	3.93	71.8	17.1	46
+"cama_mesa_banho"	9177	3.92	71.8	18.2	47
+"casa_conforto"	390	3.85	67.4	19.7	48
+"audio"	345	3.84	68.7	21.5	49
+"fashion_roupa_masculina"	105	3.76	69.4	25.0	50
+"telefonia_fixa"	209	3.76	69.4	23.0	50
+"moveis_escritorio"	1244	3.51	60.2	25.5	52
+
+
+-- BOTTOM 10 CATEGORIES BY SATISFACTION
+
+"product_category"	"total_orders"	"avg_review_score"	"negative_review_pct"	"avg_delivery_days"	"freight_pct"
+"moveis_escritorio"	1244	3.51	25.5	20.8	25.0
+"telefonia_fixa"	209	3.76	23.0	12.6	8.1
+"fashion_roupa_masculina"	105	3.76	25.0	12.8	19.7
+"audio"	345	3.84	21.5	13.3	11.2
+"casa_conforto"	390	3.85	19.7	13.5	14.7
+"cama_mesa_banho"	9177	3.92	18.2	12.8	19.7
+"moveis_sala"	409	3.93	17.1	13.7	26.4
+"others"	1382	3.94	19.5	12.8	15.8
+"moveis_decoracao"	6260	3.95	18.1	12.8	23.6
+"casa_construcao"	481	3.96	17.4	13.2	16.7
+
+
+
+
+04. Category Revenue Trend (Top 10 Categories)
+"product_category"	"order_year"	"order_month_num"	"order_month_name"	"order_month"	"total_orders"	"gmv"
+"automotivo"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	8	1128.26
+"automotivo"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	27	4820.03
+"automotivo"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	75	12358.78
+"automotivo"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	67	13272.93
+"automotivo"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	77	15149.32
+"automotivo"	2017	5	"May 2017"	"2017-05-01 00:00:00"	99	17501.25
+"automotivo"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	101	29335.71
+"automotivo"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	103	13886.85
+"automotivo"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	128	18922.61
+"automotivo"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	96	14126.77
+"automotivo"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	130	21419.39
+"automotivo"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	241	34619.19
+"automotivo"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	238	39019.96
+"automotivo"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	243	35855.02
+"automotivo"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	299	41048.51
+"automotivo"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	317	44081.96
+"automotivo"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	328	47989.41
+"automotivo"	2018	5	"May 2018"	"2018-05-01 00:00:00"	295	40851.44
+"automotivo"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	268	44962.59
+"automotivo"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	324	43466.79
+"automotivo"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	345	45032.58
+"beleza_saude"	2016	9	"Sep 2016"	"2016-09-01 00:00:00"	1	134.97
+"beleza_saude"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	36	3439.25
+"beleza_saude"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	79	12366.44
+"beleza_saude"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	143	22059.92
+"beleza_saude"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	190	25652.45
+"beleza_saude"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	168	22156.34
+"beleza_saude"	2017	5	"May 2017"	"2017-05-01 00:00:00"	261	46340.06
+"beleza_saude"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	233	31676.81
+"beleza_saude"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	270	34239.45
+"beleza_saude"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	338	49030.23
+"beleza_saude"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	356	50649.16
+"beleza_saude"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	322	40698.99
+"beleza_saude"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	519	78274.40
+"beleza_saude"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	426	60688.75
+"beleza_saude"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	563	71405.60
+"beleza_saude"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	595	84576.55
+"beleza_saude"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	605	84488.57
+"beleza_saude"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	619	91058.45
+"beleza_saude"	2018	5	"May 2018"	"2018-05-01 00:00:00"	669	94534.38
+"beleza_saude"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	790	106745.72
+"beleza_saude"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	699	103524.22
+"beleza_saude"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	765	119391.01
+"brinquedos"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	22	4106.50
+"brinquedos"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	41	4568.19
+"brinquedos"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	61	9353.44
+"brinquedos"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	99	12339.57
+"brinquedos"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	103	13039.43
+"brinquedos"	2017	5	"May 2017"	"2017-05-01 00:00:00"	192	22179.25
+"brinquedos"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	150	15337.55
+"brinquedos"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	197	23956.84
+"brinquedos"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	168	17675.37
+"brinquedos"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	265	29606.83
+"brinquedos"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	272	33324.42
+"brinquedos"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	443	62611.26
+"brinquedos"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	413	55064.56
+"brinquedos"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	154	21382.85
+"brinquedos"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	130	14203.35
+"brinquedos"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	215	22817.55
+"brinquedos"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	193	23140.41
+"brinquedos"	2018	5	"May 2018"	"2018-05-01 00:00:00"	211	31538.41
+"brinquedos"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	176	21094.95
+"brinquedos"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	147	16833.01
+"brinquedos"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	151	16923.75
+"cama_mesa_banho"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	5	478.99
+"cama_mesa_banho"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	43	3804.36
+"cama_mesa_banho"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	140	15572.13
+"cama_mesa_banho"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	239	25120.02
+"cama_mesa_banho"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	231	24092.89
+"cama_mesa_banho"	2017	5	"May 2017"	"2017-05-01 00:00:00"	323	32684.60
+"cama_mesa_banho"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	324	33803.23
+"cama_mesa_banho"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	503	62786.96
+"cama_mesa_banho"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	442	56580.63
+"cama_mesa_banho"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	456	52105.61
+"cama_mesa_banho"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	442	46007.70
+"cama_mesa_banho"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	804	87957.63
+"cama_mesa_banho"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	476	50081.16
+"cama_mesa_banho"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	689	75408.13
+"cama_mesa_banho"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	588	60366.29
+"cama_mesa_banho"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	652	67786.35
+"cama_mesa_banho"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	600	71379.61
+"cama_mesa_banho"	2018	5	"May 2018"	"2018-05-01 00:00:00"	600	71265.07
+"cama_mesa_banho"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	649	70857.08
+"cama_mesa_banho"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	511	54405.23
+"cama_mesa_banho"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	555	60891.09
+"cool_stuff"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	7	1046.10
+"cool_stuff"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	30	6856.87
+"cool_stuff"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	68	12454.60
+"cool_stuff"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	116	20583.33
+"cool_stuff"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	112	20902.39
+"cool_stuff"	2017	5	"May 2017"	"2017-05-01 00:00:00"	230	32481.60
+"cool_stuff"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	195	38109.61
+"cool_stuff"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	220	36653.46
+"cool_stuff"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	235	38264.51
+"cool_stuff"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	196	37547.47
+"cool_stuff"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	242	44348.23
+"cool_stuff"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	286	55696.66
+"cool_stuff"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	231	37515.57
+"cool_stuff"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	285	38942.41
+"cool_stuff"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	176	29772.25
+"cool_stuff"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	239	37791.24
+"cool_stuff"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	194	35025.41
+"cool_stuff"	2018	5	"May 2018"	"2018-05-01 00:00:00"	168	29949.12
+"cool_stuff"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	100	19316.37
+"cool_stuff"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	113	21152.01
+"cool_stuff"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	116	15794.89
+"esporte_lazer"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	17	2012.15
+"esporte_lazer"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	57	9212.14
+"esporte_lazer"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	134	15629.98
+"esporte_lazer"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	164	25472.89
+"esporte_lazer"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	184	22997.06
+"esporte_lazer"	2017	5	"May 2017"	"2017-05-01 00:00:00"	255	33922.73
+"esporte_lazer"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	245	32066.93
+"esporte_lazer"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	327	36618.83
+"esporte_lazer"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	375	40624.77
+"esporte_lazer"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	408	48972.11
+"esporte_lazer"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	417	48568.98
+"esporte_lazer"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	542	62686.24
+"esporte_lazer"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	431	58722.48
+"esporte_lazer"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	575	86172.83
+"esporte_lazer"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	571	74540.95
+"esporte_lazer"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	645	81656.96
+"esporte_lazer"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	520	65793.52
+"esporte_lazer"	2018	5	"May 2018"	"2018-05-01 00:00:00"	449	59209.92
+"esporte_lazer"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	371	44916.01
+"esporte_lazer"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	410	54015.89
+"esporte_lazer"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	432	50860.18
+"informatica_acessorios"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	12	669.02
+"informatica_acessorios"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	24	3924.14
+"informatica_acessorios"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	92	11319.09
+"informatica_acessorios"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	147	28078.80
+"informatica_acessorios"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	116	18353.46
+"informatica_acessorios"	2017	5	"May 2017"	"2017-05-01 00:00:00"	253	44759.39
+"informatica_acessorios"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	212	36193.70
+"informatica_acessorios"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	268	38176.22
+"informatica_acessorios"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	290	33826.47
+"informatica_acessorios"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	211	28040.65
+"informatica_acessorios"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	253	42009.38
+"informatica_acessorios"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	431	69676.32
+"informatica_acessorios"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	249	37428.67
+"informatica_acessorios"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	574	80503.87
+"informatica_acessorios"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	791	100131.99
+"informatica_acessorios"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	630	84708.39
+"informatica_acessorios"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	465	57370.90
+"informatica_acessorios"	2018	5	"May 2018"	"2018-05-01 00:00:00"	399	50631.83
+"informatica_acessorios"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	351	41695.38
+"informatica_acessorios"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	381	41063.31
+"informatica_acessorios"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	380	40052.64
+"moveis_decoracao"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	49	5690.52
+"moveis_decoracao"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	132	13036.63
+"moveis_decoracao"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	213	19926.41
+"moveis_decoracao"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	253	22133.47
+"moveis_decoracao"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	162	19211.23
+"moveis_decoracao"	2017	5	"May 2017"	"2017-05-01 00:00:00"	226	22312.54
+"moveis_decoracao"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	177	16614.29
+"moveis_decoracao"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	249	24028.12
+"moveis_decoracao"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	323	33595.89
+"moveis_decoracao"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	270	30554.92
+"moveis_decoracao"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	266	30009.74
+"moveis_decoracao"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	536	62091.27
+"moveis_decoracao"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	304	31073.09
+"moveis_decoracao"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	467	53798.81
+"moveis_decoracao"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	336	38002.36
+"moveis_decoracao"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	430	51319.97
+"moveis_decoracao"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	458	56217.62
+"moveis_decoracao"	2018	5	"May 2018"	"2018-05-01 00:00:00"	456	53706.45
+"moveis_decoracao"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	316	42042.22
+"moveis_decoracao"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	343	45393.59
+"moveis_decoracao"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	341	41168.55
+"relogios_presentes"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	4	2711.07
+"relogios_presentes"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	11	8086.52
+"relogios_presentes"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	32	10992.39
+"relogios_presentes"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	74	24892.38
+"relogios_presentes"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	88	23336.09
+"relogios_presentes"	2017	5	"May 2017"	"2017-05-01 00:00:00"	120	36619.48
+"relogios_presentes"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	113	27337.63
+"relogios_presentes"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	151	33702.42
+"relogios_presentes"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	194	36170.95
+"relogios_presentes"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	251	44748.96
+"relogios_presentes"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	282	64874.63
+"relogios_presentes"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	424	95292.34
+"relogios_presentes"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	333	69556.92
+"relogios_presentes"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	322	73521.24
+"relogios_presentes"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	304	60725.31
+"relogios_presentes"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	407	95661.18
+"relogios_presentes"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	462	88623.07
+"relogios_presentes"	2018	5	"May 2018"	"2018-05-01 00:00:00"	585	119364.98
+"relogios_presentes"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	444	85027.57
+"relogios_presentes"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	505	94886.79
+"relogios_presentes"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	387	69767.06
+"utilidades_domesticas"	2016	10	"Oct 2016"	"2016-10-01 00:00:00"	9	1287.07
+"utilidades_domesticas"	2017	1	"Jan 2017"	"2017-01-01 00:00:00"	21	2827.58
+"utilidades_domesticas"	2017	2	"Feb 2017"	"2017-02-01 00:00:00"	61	11295.34
+"utilidades_domesticas"	2017	3	"Mar 2017"	"2017-03-01 00:00:00"	170	12906.96
+"utilidades_domesticas"	2017	4	"Apr 2017"	"2017-04-01 00:00:00"	134	12472.18
+"utilidades_domesticas"	2017	5	"May 2017"	"2017-05-01 00:00:00"	259	21374.90
+"utilidades_domesticas"	2017	6	"Jun 2017"	"2017-06-01 00:00:00"	280	22978.21
+"utilidades_domesticas"	2017	7	"Jul 2017"	"2017-07-01 00:00:00"	220	20251.53
+"utilidades_domesticas"	2017	8	"Aug 2017"	"2017-08-01 00:00:00"	245	23427.84
+"utilidades_domesticas"	2017	9	"Sep 2017"	"2017-09-01 00:00:00"	217	19941.56
+"utilidades_domesticas"	2017	10	"Oct 2017"	"2017-10-01 00:00:00"	188	15883.68
+"utilidades_domesticas"	2017	11	"Nov 2017"	"2017-11-01 00:00:00"	345	33872.42
+"utilidades_domesticas"	2017	12	"Dec 2017"	"2017-12-01 00:00:00"	243	25285.96
+"utilidades_domesticas"	2018	1	"Jan 2018"	"2018-01-01 00:00:00"	317	37446.74
+"utilidades_domesticas"	2018	2	"Feb 2018"	"2018-02-01 00:00:00"	334	34877.47
+"utilidades_domesticas"	2018	3	"Mar 2018"	"2018-03-01 00:00:00"	322	35052.12
+"utilidades_domesticas"	2018	4	"Apr 2018"	"2018-04-01 00:00:00"	411	44363.29
+"utilidades_domesticas"	2018	5	"May 2018"	"2018-05-01 00:00:00"	492	62824.57
+"utilidades_domesticas"	2018	6	"Jun 2018"	"2018-06-01 00:00:00"	464	55912.61
+"utilidades_domesticas"	2018	7	"Jul 2018"	"2018-07-01 00:00:00"	462	62583.30
+"utilidades_domesticas"	2018	8	"Aug 2018"	"2018-08-01 00:00:00"	549	58763.36
+
+
+-- 5. FREIGHT COST ANALYSIS BY CATEGORY
+"product_category"	"total_orders"	"avg_item_price"	"avg_freight_value"	"freight_to_price_ratio_pct"	"avg_delivery_days"	"avg_review_score"
+"artigos_de_natal"	125	58.25	21.27	36.5	15.7	4.07
+"sinalizacao_e_seguranca"	138	108.20	32.88	30.4	10.4	4.09
+"eletronicos"	2517	56.81	16.74	29.5	12.9	4.07
+"alimentos_bebidas"	221	55.55	16.34	29.4	10.9	4.36
+"dvds_blu_ray"	56	74.47	20.12	27.0	13.0	4.18
+"moveis_sala"	414	136.06	35.75	26.3	13.8	3.93
+"bebidas"	287	59.64	15.07	25.3	10.4	4.12
+"moveis_cozinha_area_de_servico_jantar_e_jardim"	241	166.18	42.12	25.3	11.9	4.03
+"moveis_escritorio"	1254	160.76	40.20	25.0	20.8	3.51
+"alimentos"	441	57.58	14.16	24.6	9.6	4.26
+"moveis_decoracao"	6307	87.25	20.64	23.7	12.9	3.95
+"utilidades_domesticas"	5743	90.60	21.01	23.2	10.9	4.11
+"moveis_quarto"	90	184.97	42.01	22.7	13.2	4.25
+"livros_tecnicos"	256	71.11	15.97	22.5	10.7	4.39
+"telefonia"	4093	69.95	15.65	22.4	12.9	3.99
+"malas_acessorios"	1019	128.79	27.93	21.7	10.7	4.35
+"fashion_calcados"	235	89.50	18.73	20.9	15.4	4.28
+"construcao_ferramentas_jardim"	190	108.17	22.36	20.7	11.9	4.12
+"fashion_bolsas_e_acessorios"	1820	75.23	15.39	20.5	11.1	4.19
+"papelaria"	2264	90.75	18.57	20.5	12.7	4.25
+
+
+
+-- 6. TOP CATEGORY PER STATE
+"customer_state"	"top_category"	"total_orders"	"gmv"
+"SP"	"cama_mesa_banho"	4347	472238.07
+"RJ"	"cama_mesa_banho"	1357	144251.79
+"MG"	"cama_mesa_banho"	1120	128760.49
+"RS"	"cama_mesa_banho"	537	60040.95
+"PR"	"esporte_lazer"	420	57653.30
+"BA"	"beleza_saude"	319	49955.12
+"SC"	"esporte_lazer"	309	41579.03
+"PE"	"beleza_saude"	220	40685.01
+"DF"	"beleza_saude"	219	29542.82
+"GO"	"beleza_saude"	206	27971.30
+"ES"	"cama_mesa_banho"	197	22589.65
+"CE"	"beleza_saude"	152	31544.50
+"PA"	"beleza_saude"	99	23545.84
+"MT"	"beleza_saude"	83	15241.80
+"MA"	"beleza_saude"	82	12668.28
+"PB"	"beleza_saude"	75	15692.08
+"AL"	"beleza_saude"	62	12681.26
+"MS"	"esporte_lazer"	60	9097.19
+"RN"	"beleza_saude"	56	13728.98
+"PI"	"beleza_saude"	50	10205.20
+"SE"	"beleza_saude"	38	8396.67
+"TO"	"beleza_saude"	29	4798.99
+"RO"	"beleza_saude"	23	7085.76
+"AM"	"beleza_saude"	15	2776.03
+"AP"	"beleza_saude"	10	1380.58
+"AC"	"esporte_lazer"	9	1677.46
+"RR"	"esporte_lazer"	6	1350.60
+
+
+-- 7. CATEGORY SEASONALITY
+"product_category"	"order_month_num"	"month_short"	"total_orders"	"gmv"
+"beleza_saude"	1	"Jan"	642	83772.04
+"beleza_saude"	2	"Feb"	738	106636.47
+"beleza_saude"	3	"Mar"	795	110141.02
+"beleza_saude"	4	"Apr"	787	113214.79
+"beleza_saude"	5	"May"	930	140874.44
+"beleza_saude"	6	"Jun"	1023	138422.53
+"beleza_saude"	7	"Jul"	969	137763.67
+"beleza_saude"	8	"Aug"	1103	168421.24
+"beleza_saude"	9	"Sep"	357	50784.13
+"beleza_saude"	10	"Oct"	358	44138.24
+"beleza_saude"	11	"Nov"	519	78274.40
+"beleza_saude"	12	"Dec"	426	60688.75
+"cama_mesa_banho"	1	"Jan"	732	79212.49
+"cama_mesa_banho"	2	"Feb"	728	75938.42
+"cama_mesa_banho"	3	"Mar"	891	92906.37
+"cama_mesa_banho"	4	"Apr"	831	95472.50
+"cama_mesa_banho"	5	"May"	923	103949.67
+"cama_mesa_banho"	6	"Jun"	973	104660.31
+"cama_mesa_banho"	7	"Jul"	1014	117192.19
+"cama_mesa_banho"	8	"Aug"	997	117471.72
+"cama_mesa_banho"	9	"Sep"	456	52105.61
+"cama_mesa_banho"	10	"Oct"	447	46486.69
+"cama_mesa_banho"	11	"Nov"	804	87957.63
+"cama_mesa_banho"	12	"Dec"	476	50081.16
+"esporte_lazer"	1	"Jan"	632	95384.97
+"esporte_lazer"	2	"Feb"	705	90170.93
+"esporte_lazer"	3	"Mar"	809	107129.85
+"esporte_lazer"	4	"Apr"	704	88790.58
+"esporte_lazer"	5	"May"	704	93132.65
+"esporte_lazer"	6	"Jun"	616	76982.94
+"esporte_lazer"	7	"Jul"	737	90634.72
+"esporte_lazer"	8	"Aug"	807	91484.95
+"esporte_lazer"	9	"Sep"	408	48972.11
+"esporte_lazer"	10	"Oct"	434	50581.13
+"esporte_lazer"	11	"Nov"	542	62686.24
+"esporte_lazer"	12	"Dec"	431	58722.48
+"informatica_acessorios"	1	"Jan"	598	84428.01
+"informatica_acessorios"	2	"Feb"	883	111451.08
+"informatica_acessorios"	3	"Mar"	777	112787.19
+"informatica_acessorios"	4	"Apr"	581	75724.36
+"informatica_acessorios"	5	"May"	652	95391.22
+"informatica_acessorios"	6	"Jun"	563	77889.08
+"informatica_acessorios"	7	"Jul"	649	79239.53
+"informatica_acessorios"	8	"Aug"	670	73879.11
+"informatica_acessorios"	9	"Sep"	211	28040.65
+"informatica_acessorios"	10	"Oct"	265	42678.40
+"informatica_acessorios"	11	"Nov"	431	69676.32
+"informatica_acessorios"	12	"Dec"	249	37428.67
+"relogios_presentes"	1	"Jan"	333	81607.76
+"relogios_presentes"	2	"Feb"	336	71717.70
+"relogios_presentes"	3	"Mar"	481	120553.56
+"relogios_presentes"	4	"Apr"	550	111959.16
+"relogios_presentes"	5	"May"	705	155984.46
+"relogios_presentes"	6	"Jun"	557	112365.20
+"relogios_presentes"	7	"Jul"	656	128589.21
+"relogios_presentes"	8	"Aug"	581	105938.01
+"relogios_presentes"	9	"Sep"	251	44748.96
+"relogios_presentes"	10	"Oct"	286	67585.70
+"relogios_presentes"	11	"Nov"	424	95292.34
+"relogios_presentes"	12	"Dec"	333	69556.92
