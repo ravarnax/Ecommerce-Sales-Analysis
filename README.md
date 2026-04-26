@@ -203,23 +203,23 @@ Ecommerce-Sales-Analysis/
 ## 📸 Dashboard Preview
 
 ### Executive Overview
-![Executive Dashboard](powerbi/screenshots/01_executive_overview.png)
+![Executive Dashboard](powerbi/Executive%20Dashboard%20(Olist%20Dataset).png)
 *High-level KPIs and trends — designed for C-suite consumption*
 
 ### Revenue & Growth Analysis
-![Revenue Dashboard](powerbi/screenshots/02_revenue_growth.png)
+![Revenue Dashboard](powerbi/Revenue%20and%20Growth%20Dashboard%20(Olist%20Dataset).png)
 *Monthly GMV trends, MoM growth rates, and seasonality patterns*
 
 ### Customer Insights
-![Customer Dashboard](powerbi/screenshots/03_customer_insights.png)
+![Customer Dashboard](powerbi/Customer%20Insights%20Dashboard%20(Olist%20Dataset).png)
 *RFM segmentation, retention analysis, and geographic distribution*
 
 ### Product Performance
-![Product Dashboard](powerbi/screenshots/04_product_performance.png)
+![Product Dashboard](powerbi/Product%20Performance%20Dashboard%20(Olist%20Dataset).png)
 *Category quadrant matrix, satisfaction rankings, and freight risk analysis*
 
 ### Delivery & Logistics
-![Logistics Dashboard](powerbi/screenshots/05_delivery_logistics.png)
+![Logistics Dashboard](powerbi/Delivery%20and%20Logistics%20Dashboard%20(Olist%20Dataset).png)
 *On-time performance, state-level analysis, and delay impact on reviews*
 
 ---
@@ -256,10 +256,10 @@ Ecommerce-Sales-Analysis/
 
 ## 📬 Contact & Links
 
-**Author:** [Your Name]  
-**LinkedIn:** [Your LinkedIn URL]  
-**Portfolio:** [Your Portfolio Site]  
-**Email:** [Your Email]
+**Author:** Shivam Kothiyal ([@shivamkothiyal17](https://github.com/shivamkothiyal17))
+**LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/shivam-kothiyal-161b531b8/)  
+**Portfolio:** [Portfolio Site](https://github.com/shivamkothiyal17)
+**Email:** shivamkothiyal170@gmail.com
 
 ---
 
