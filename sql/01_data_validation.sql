@@ -1,10 +1,3 @@
--- =============================================
--- OLIST DATA VALIDATION
--- File: 01_data_validation.sql
--- Author: SHIVAM KOTHIYAL
--- Date: 10-04-2026
--- =============================================
-
 -- 1. ROW COUNT AUDIT
 -- Business question: Did all our data load correctly?
 -- Expected counts based on Kaggle dataset documentation
@@ -26,16 +19,6 @@ UNION ALL
 SELECT 'geolocation',                    COUNT(*)             FROM geolocation
 ORDER BY row_count DESC;
 
-Output:
-        "table_name"	  "row_count"
-        "geolocation"	    1000163
-        "order_items"	    112650
-        "order_payments"	103886
-        "customers"	        99441
-        "orders"	        99441
-        "order_reviews" 	99224
-        "products"	        32951
-        "sellers"	        3095
 
 
 -- Query 2 — Date Range Check
@@ -51,9 +34,7 @@ SELECT
 FROM orders;
 
 
-Output: 
-"earliest_order"	    "latest_order"	        "total_days_span"	"months_of_data"	"year_of_data"
-"2016-09-04 21:15:19"	"2018-10-17 17:30:18"	    773	                25	                3
+
 
 
 -- Query 3 — Order Status Distribution
@@ -67,16 +48,7 @@ FROM orders
 GROUP BY order_status
 ORDER BY order_count DESC;
 
-Output:
-        "order_count"	"total_orders"	"pct_of_total"
-        "unavailable"	    609	            0.61
-        "shipped"	        1107	        1.11
-        "processing"	    301	            0.30
-        "invoiced"	        314	            0.32
-        "delivered"	        96478	        97.02
-        "created"	        5	            0.01
-        "canceled"	        625	            0.63
-        "approved"	        2	            0.00
+
 
 
 
@@ -96,9 +68,7 @@ JOIN information_schema.tables t ON c.table_name = t.table_name
 WHERE t.table_name = 'orders'
 GROUP BY t.table_name;
 
-Output:
-    "null_counts"
-    "{""order_id"": 0, ""customer_id"": 0, ""order_status"": 0, ""order_approved_at"": 0, ""order_purchase_timestamp"": 0, ""order_delivered_carrier_date"": 0, ""order_delivered_customer_date"": 0, ""order_estimated_delivery_date"": 0}"
+
 
 
 -- QUERY 4.1 -- Missing Delivery Info
@@ -109,9 +79,6 @@ SELECT
     COUNT(*) FILTER (WHERE order_status = 'delivered' AND order_delivered_customer_date IS NULL) as missing_delivery_info
 FROM orders;
 
-Output:
-"earliest_date"	"missing_delivery_info"
-"2016-09-04 21:15:19"	8
 
 
 -- Query 4.2 — Geolocation Data Quality
@@ -125,9 +92,6 @@ SELECT
     COUNT(*) FILTER (WHERE geolocation_lat = 0 OR geolocation_lng = 0) as zero_coordinates
 FROM geolocation;
 
-Output:
-    "total_rows"	"unique_zips"	"null_lats"	"null_lngs"	"zero_coordinates"
-    1000163	        19015	        0	            0	            0
 
 
 -- Null audit on products (category name matters for analysis)
@@ -140,10 +104,6 @@ SELECT
     COUNT(*) FILTER (WHERE product_length_cm IS NULL)             AS null_dimensions
 FROM products;
 
-
-Output:
-    "table_name"	        "total_rows"	"null_product_id"	"null_category"	   "null_weight"	"null_dimnsions"
-    "products"	            32951	            0	                610	                2	                2
 
 
     /* insights :
@@ -178,9 +138,6 @@ SELECT
     COUNT(*) FILTER (WHERE freight_value IS NULL)       AS null_freight
 FROM order_items;
 
--- Output:
-    "table_name"    "total_rows"    "null_order_id"    "null_product_id"    "null_seller_id"    "null_price"    "null_freight"
-    "order_items"   112650          0                   0                   0                   0               0
 
     /* insights :
         1. order_items table has no null values.
@@ -274,9 +231,18 @@ FROM orders o
 LEFT JOIN customers c ON o.customer_id = c.customer_id
 WHERE c.customer_id IS NULL;
 
-Output:
-    "?column?"	"count"
-    "orders with missing customers"	0
+
+
+-- 7. PRICE SANITY CHECK
+SELECT
+    ROUND(MIN(price), 2)    AS min_price,
+    ROUND(MAX(price), 2)    AS max_price,
+    ROUND(AVG(price), 2)    AS avg_price,
+    ROUND(MIN(freight_value), 2)  AS min_freight,
+    ROUND(MAX(freight_value), 2)  AS max_freight,
+    ROUND(AVG(freight_value), 2)  AS avg_freight,
+    COUNT(*) FILTER (WHERE price <= 0)         AS zero_or_neg_price,
+    COUNT(*) FILTER (WHERE freight_value < 0)  AS negative_freight
 
 
 
@@ -291,11 +257,6 @@ SELECT
     COUNT(*) FILTER (WHERE price <= 0)         AS zero_or_neg_price,
     COUNT(*) FILTER (WHERE freight_value < 0)  AS negative_freight
 FROM order_items;
-
-
-Output:
-    "min_price"	"max_price"	"avg_price"	"min_freight"	"max_freight"	"avg_freight"	"zero_or_neg_price"	"negative_freight"
-      0.85	      6735.00      120.65	    0.00	        409.68	       19.99	            0	            0   
 
 
 

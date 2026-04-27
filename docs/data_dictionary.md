@@ -1,3 +1,24 @@
+## Data Quality Findings
+
+### Row Counts (actual)
+- customers: 99441
+- orders: 99441
+- order_items: 112650
+- order_payments: 103886
+- order_reviews: 99224
+- products: 32951
+- sellers: 3095
+- geolocation: 1000163
+
+### Key Issues Found
+1. products.product_category_name — ~610 nulls → will label as 'uncategorized'
+2. orders.order_delivered_customer_date — nulls exist for non-delivered orders → expected
+
+### Analysis Decisions Made
+- Revenue analysis will use ONLY orders with status = 'delivered'
+- Null categories will be relabeled 'uncategorized' in our queries
+- Geolocation table has duplicates by zip code — will use DISTINCT or aggregate
+
 ## Analytical Assumptions & Cleaning Decisions
 
 1. REVENUE SCOPE
@@ -35,13 +56,13 @@
 2. delivered_orders   — filtered to delivered + non-null delivery date
 
 ### Key Numbers (from verification query)
-- Total delivered orders:     [your number]
-- Unique customers:           [your number]
-- Active sellers:             [your number]
-- Product categories:         [your number]
-- Total GMV (BRL):            [your number]
-- Average order value (BRL):  [your number]
-- Data range:                 [start] → [end]
+- Total delivered orders:     96478
+- Unique customers:           93358
+- Active sellers:             2970
+- Product categories:         74
+- Total GMV (BRL):            13221498.11
+- Average order value (BRL):  119.98
+- Data range:                 2016-09-15 12:16:38 to 2018-08-29 15:00:37
 
 ### Payment Aggregation Note
 Payments were pre-aggregated per order_id before joining to avoid
@@ -50,5 +71,8 @@ row multiplication. Used MODE() for payment type, SUM() for value.
 ### Review Deduplication Note  
 Used DISTINCT ON (order_id) to take the most recent review per order,
 preventing duplicate rows where multiple reviews exist.
+
+
+
 
 
